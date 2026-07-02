@@ -4,10 +4,10 @@ import habitTrackerShot from '../assets/images/projects/habit-tracker.png'
 
 export const projectsContent = {
   section: {
-    eyebrow: 'Featured projects',
-    heading: 'Products engineered beyond the interface.',
+    eyebrow: 'Systems in practice',
+    heading: 'The interface is only one part of the system.',
     description:
-      'Selected full-stack applications that combine thoughtful user experience with authentication, persistent data, cloud services, and production deployment.',
+      'These projects show how I connect state, API contracts, authentication, business rules, databases, and deployment into one traceable flow. The work is not only making each layer function; it is understanding how a decision in one layer changes the behavior of the others.',
   },
   actions: {
     liveDemoLabel: 'Live Demo',
