@@ -39,6 +39,7 @@ function ProjectCard({ project, actions, index }) {
             projectName={project.title}
             liveUrl={project.liveDemo}
             githubUrl={project.github}
+            readmeUrl={project.readme}
             labels={actions}
           />
         </div>

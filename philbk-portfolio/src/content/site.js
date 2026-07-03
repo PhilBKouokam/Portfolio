@@ -1,7 +1,12 @@
+const resumeDocument = new URL(
+  '../assets/documents/phillip-bryan-kouokam-resume.pdf',
+  import.meta.url,
+).href
+
 const links = {
   github: 'https://github.com/PhilBKouokam',
   linkedin: 'https://www.linkedin.com/in/phillip-bryan-kouokam',
-  resume: '/resume.pdf',
+  resume: resumeDocument,
 }
 
 const email = 'kouokambryan@gmail.com'

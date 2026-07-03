@@ -1,6 +1,7 @@
 import calorieBankShot from '../assets/images/projects/caloriebank.png'
 import spendWiseShot from '../assets/images/projects/spendwise.png'
 import habitTrackerShot from '../assets/images/projects/habit-tracker.png'
+import philbkResumeShot from '../assets/images/projects/philbk-resume.png'
 
 export const projectsContent = {
   section: {
@@ -12,6 +13,8 @@ export const projectsContent = {
   actions: {
     liveDemoLabel: 'Live Demo',
     githubLabel: 'GitHub',
+    repositoryLabel: 'Repository',
+    readmeLabel: 'View README',
     unavailableLiveDemoTitle: 'Live demo link coming soon',
   },
   featuredDetails: [
@@ -58,6 +61,24 @@ export const projectsContent = {
       keyFeatures: ['Authentication', 'Complete CRUD workflows', 'React Context state', 'MongoDB persistence', 'Production deployment'],
       lessonsLearned: 'Explicit state transitions and predictable API contracts make full-stack CRUD workflows easier to debug and maintain.', screenshot: habitTrackerShot, altText: 'Habit Tracker application dashboard',
     },
+    {
+      id: 'philbk-resume', slug: 'philbk-resume', title: 'philbk-resume', label: 'Engineering Tool',
+      tagline: 'A deterministic résumé publishing system.',
+      description: 'A React-powered résumé generation system that treats professional documents as software through canonical content, schema validation, deterministic PDF generation, and automated output validation.',
+      technologies: ['React', 'Vite', 'Zod', 'Playwright', 'Vitest', 'ESLint'], featured: false,
+      liveDemo: null, github: 'https://github.com/PhilBKouokam/philbk-resume',
+      readme: 'https://github.com/PhilBKouokam/philbk-resume#readme',
+      architecture: 'Canonical résumé content passes through schema validation and immutable normalization before React renders the shared semantic document for browser and PDF output.',
+      engineeringChallenges: 'Keeping browser rendering, one-page PDF constraints, ATS semantics, and automated validation consistent across the publishing pipeline.',
+      problemsSolved: 'Replaces manually maintained résumé variants with a validated system that produces repeatable output from one source of truth.',
+      keyFeatures: [
+        'Canonical content separated from presentation',
+        'Schema validation and immutable normalization',
+        'Deterministic Playwright publishing with automated PDF validation',
+      ],
+      lessonsLearned: 'Professional documents benefit from the same explicit contracts, deterministic builds, and validation boundaries used in production software.',
+      screenshot: philbkResumeShot, altText: 'philbk-resume browser preview and generated résumé document',
+    },
   ],
 }
 
@@ -68,7 +89,6 @@ const requiredProjectFields = [
   'label',
   'description',
   'technologies',
-  'liveDemo',
   'github',
   'architecture',
   'engineeringChallenges',
