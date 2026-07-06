@@ -1,6 +1,7 @@
 import Container from '../layout/Container'
 import FeaturedProject from '../portfolio/FeaturedProject'
 import ProjectCard from '../portfolio/ProjectCard'
+import Badge from '../ui/Badge'
 import SectionHeading from '../ui/SectionHeading'
 import { sectionAnchors } from '../../content/navigation'
 import { projectsContent } from '../../content/projects'
@@ -38,6 +39,24 @@ function ProjectsSection() {
               >
                 {category.title}
               </p>
+
+              {category.credential ? (
+                <aside
+                  aria-labelledby={`${category.id}-credential-heading`}
+                  className="mt-6 rounded-card border border-border bg-surface p-5 shadow-card sm:p-6"
+                >
+                  <Badge>{category.credential.badge}</Badge>
+                  <p
+                    id={`${category.id}-credential-heading`}
+                    className="mt-4 text-lg font-semibold tracking-tight text-foreground"
+                  >
+                    {category.credential.title}
+                  </p>
+                  <p className="mt-2 max-w-4xl text-sm leading-6 text-muted">
+                    {category.credential.description}
+                  </p>
+                </aside>
+              ) : null}
 
               {featuredProject ? (
                 <div className="mt-6">

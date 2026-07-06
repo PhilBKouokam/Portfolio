@@ -1,6 +1,7 @@
 import AboutSection from '../components/sections/AboutSection'
 import PageLayout from '../components/layout/PageLayout'
 import HeroSection from '../components/sections/HeroSection'
+import CoreTechnologiesSection from '../components/sections/CoreTechnologiesSection'
 import ProjectsSection from '../components/sections/ProjectsSection'
 import ProcessSection from '../components/sections/ProcessSection'
 import SkillsSection from '../components/sections/SkillsSection'
@@ -14,6 +15,7 @@ function HomePage() {
     <PageLayout>
       <Seo />
       <HeroSection />
+      <CoreTechnologiesSection />
       <AboutSection />
       <ProjectsSection />
       <ProcessSection />

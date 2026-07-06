@@ -38,6 +38,11 @@ export const projectsContent = {
     {
       id: 'cloud-engineering',
       title: 'Cloud Engineering Projects',
+      credential: {
+        badge: 'AWS Certified',
+        title: 'AWS Certified Solutions Architect – Associate',
+        description: 'Validated cloud architecture knowledge with hands-on experience designing and deploying scalable AWS solutions using compute, networking, monitoring, automation, and serverless services.',
+      },
       projectIds: [
         'aws-highly-available-web-application',
         'aws-serverless-etl-pipeline',
