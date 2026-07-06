@@ -3,6 +3,7 @@ import spendWiseShot from '../assets/images/projects/spendwise.png'
 import habitTrackerShot from '../assets/images/projects/habit-tracker.png'
 import philbkResumeShot from '../assets/images/projects/philbk-resume.png'
 import awsHighlyAvailableShot from '../assets/images/projects/aws-highly-available-web-application.png'
+import awsServerlessEtlShot from '../assets/images/projects/aws-serverless-etl-pipeline.png'
 
 export const projectsContent = {
   section: {
@@ -22,6 +23,10 @@ export const projectsContent = {
         repositoryLabel: 'GitHub',
         readmeLabel: 'Documentation',
       },
+      'AWS Serverless ETL Pipeline': {
+        repositoryLabel: 'GitHub',
+        readmeLabel: 'Documentation',
+      },
     },
   },
   categories: [
@@ -33,7 +38,10 @@ export const projectsContent = {
     {
       id: 'cloud-engineering',
       title: 'Cloud Engineering Projects',
-      projectIds: ['aws-highly-available-web-application'],
+      projectIds: [
+        'aws-highly-available-web-application',
+        'aws-serverless-etl-pipeline',
+      ],
     },
     {
       id: 'engineering-tools',
@@ -140,6 +148,41 @@ export const projectsContent = {
       linkScreenshotToGithub: true,
       screenshot: awsHighlyAvailableShot,
       altText: 'Architecture diagram for the AWS highly available web application',
+    },
+    {
+      id: 'aws-serverless-etl-pipeline',
+      slug: 'aws-serverless-etl-pipeline',
+      title: 'AWS Serverless ETL Pipeline',
+      label: 'Cloud Engineering',
+      tagline: 'An event-driven serverless data transformation pipeline.',
+      description: 'Designed and implemented an event-driven serverless ETL pipeline on AWS that automatically transforms CSV datasets into JSON using Amazon S3, AWS Lambda, AWS Glue, and IAM. The solution eliminates manual processing by orchestrating data ingestion, transformation, and output through fully managed cloud services while demonstrating event-driven architecture and scalable data engineering workflows.',
+      technologies: [
+        'AWS',
+        'Amazon S3',
+        'AWS Lambda',
+        'AWS Glue',
+        'IAM',
+        'Python',
+        'Serverless',
+        'ETL',
+      ],
+      featured: false,
+      liveDemo: null,
+      github: 'https://github.com/PhilBKouokam/aws-serverless-etl-pipeline',
+      readme: 'https://github.com/PhilBKouokam/aws-serverless-etl-pipeline',
+      architecture: 'Amazon S3 events initiate serverless processing through AWS Lambda and AWS Glue, transforming incoming CSV data into JSON output under IAM-controlled service permissions.',
+      engineeringChallenges: 'Coordinating event triggers, transformation responsibilities, storage boundaries, and IAM permissions across fully managed AWS services.',
+      problemsSolved: 'Automates repeatable dataset ingestion and transformation without requiring manual processing or continuously running infrastructure.',
+      keyFeatures: [
+        'Event-driven S3 ingestion',
+        'Lambda CSV-to-JSON transformation',
+        'AWS Glue data processing',
+        'IAM-controlled service access',
+      ],
+      lessonsLearned: 'Serverless data workflows remain reliable when event sources, transformation steps, storage destinations, and service permissions are defined as explicit system boundaries.',
+      linkScreenshotToGithub: true,
+      screenshot: awsServerlessEtlShot,
+      altText: 'Architecture diagram for the AWS serverless ETL pipeline',
     },
   ],
 }
