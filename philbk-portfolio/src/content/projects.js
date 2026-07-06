@@ -2,6 +2,7 @@ import calorieBankShot from '../assets/images/projects/caloriebank.png'
 import spendWiseShot from '../assets/images/projects/spendwise.png'
 import habitTrackerShot from '../assets/images/projects/habit-tracker.png'
 import philbkResumeShot from '../assets/images/projects/philbk-resume.png'
+import awsHighlyAvailableShot from '../assets/images/projects/aws-highly-available-web-application.png'
 
 export const projectsContent = {
   section: {
@@ -16,7 +17,30 @@ export const projectsContent = {
     repositoryLabel: 'Repository',
     readmeLabel: 'View README',
     unavailableLiveDemoTitle: 'Live demo link coming soon',
+    projectOverrides: {
+      'AWS Highly Available Web Application': {
+        repositoryLabel: 'GitHub',
+        readmeLabel: 'Documentation',
+      },
+    },
   },
+  categories: [
+    {
+      id: 'featured-projects',
+      title: 'Featured Projects',
+      projectIds: ['caloriebank', 'spendwise', 'habit-tracker'],
+    },
+    {
+      id: 'cloud-engineering',
+      title: 'Cloud Engineering',
+      projectIds: ['aws-highly-available-web-application'],
+    },
+    {
+      id: 'engineering-tools',
+      title: 'Engineering Tools',
+      projectIds: ['philbk-resume'],
+    },
+  ],
   featuredDetails: [
     { id: 'challenges', title: 'Engineering challenges', field: 'engineeringChallenges' },
     { id: 'architecture', title: 'Architecture', field: 'architecture' },
@@ -79,6 +103,43 @@ export const projectsContent = {
       lessonsLearned: 'Professional documents benefit from the same explicit contracts, deterministic builds, and validation boundaries used in production software.',
       screenshot: philbkResumeShot, altText: 'philbk-resume browser preview and generated résumé document',
     },
+    {
+      id: 'aws-highly-available-web-application',
+      slug: 'aws-highly-available-web-application',
+      title: 'AWS Highly Available Web Application',
+      label: 'Cloud Engineering',
+      tagline: 'Highly available, automatically scaling AWS infrastructure.',
+      description: 'Designed and deployed a highly available web application on AWS using Amazon EC2, Elastic Load Balancing, Auto Scaling, CloudWatch, and Amazon SNS. The infrastructure automatically scales with demand, distributes traffic across multiple EC2 instances, monitors application health, and improves fault tolerance through automated recovery mechanisms.',
+      technologies: [
+        'AWS',
+        'Amazon EC2',
+        'Elastic Load Balancing',
+        'Auto Scaling',
+        'CloudWatch',
+        'Amazon SNS',
+        'IAM',
+      ],
+      featured: false,
+      liveDemo: null,
+      github: 'https://github.com/PhilBKouokam/aws-highly-available-web-application',
+      readme: 'https://github.com/PhilBKouokam/aws-highly-available-web-application#readme',
+      architecture: 'Traffic is distributed through an Elastic Load Balancer across multiple EC2 instances managed by an Auto Scaling group, with CloudWatch alarms and SNS notifications supporting monitoring and recovery.',
+      engineeringChallenges: 'Coordinating scaling, health monitoring, traffic distribution, permissions, and recovery behavior as one dependable infrastructure system.',
+      problemsSolved: 'Reduces single-instance failure risk and allows application capacity to respond automatically as demand changes.',
+      keyFeatures: [
+        'High Availability Architecture',
+        'Elastic Load Balancer',
+        'Auto Scaling Groups',
+        'Multi-Instance Deployment',
+        'CloudWatch Monitoring',
+        'SNS Notifications',
+        'Fault-Tolerant Infrastructure',
+        'AWS Architecture Documentation',
+      ],
+      lessonsLearned: 'Reliable cloud infrastructure depends on understanding how traffic, compute capacity, health signals, permissions, and recovery mechanisms influence one another.',
+      screenshot: awsHighlyAvailableShot,
+      altText: 'Architecture diagram for the AWS highly available web application',
+    },
   ],
 }
 
@@ -121,6 +182,23 @@ function validateProjectsContent(content) {
 
     projectIds.add(project.id)
   })
+
+  const categorizedProjectIds = content.categories.flatMap((category) => category.projectIds)
+  const unknownProjectId = categorizedProjectIds.find((id) => !projectIds.has(id))
+  if (unknownProjectId) {
+    throw new Error(`Project category references unknown project id "${unknownProjectId}".`)
+  }
+
+  if (new Set(categorizedProjectIds).size !== categorizedProjectIds.length) {
+    throw new Error('Each project must belong to only one project category.')
+  }
+
+  const uncategorizedProject = content.projects.find(
+    (project) => !categorizedProjectIds.includes(project.id),
+  )
+  if (uncategorizedProject) {
+    throw new Error(`Project "${uncategorizedProject.id}" must belong to a project category.`)
+  }
 
   content.featuredDetails.forEach(({ field }) => {
     if (!requiredProjectFields.includes(field)) {

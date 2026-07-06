@@ -2,6 +2,8 @@ import { Code2, ExternalLink } from 'lucide-react'
 import Button from './Button'
 
 function ProjectActions({ projectName, liveUrl, githubUrl, readmeUrl, labels }) {
+  const projectLabels = labels.projectOverrides?.[projectName] ?? labels
+
   if (!liveUrl && readmeUrl) {
     return (
       <div className="flex flex-wrap gap-3">
@@ -12,7 +14,7 @@ function ProjectActions({ projectName, liveUrl, githubUrl, readmeUrl, labels }) 
           aria-label={`View the ${projectName} repository on GitHub (opens in a new tab)`}
         >
           <Code2 aria-hidden="true" size={17} />
-          {labels.repositoryLabel}
+          {projectLabels.repositoryLabel}
         </Button>
         <Button
           href={readmeUrl}
@@ -21,7 +23,7 @@ function ProjectActions({ projectName, liveUrl, githubUrl, readmeUrl, labels }) 
           variant="secondary"
           aria-label={`View the ${projectName} README on GitHub (opens in a new tab)`}
         >
-          {labels.readmeLabel}
+          {projectLabels.readmeLabel}
           <ExternalLink aria-hidden="true" size={16} />
         </Button>
       </div>
