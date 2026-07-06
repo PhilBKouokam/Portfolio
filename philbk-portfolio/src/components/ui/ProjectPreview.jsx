@@ -1,14 +1,28 @@
-function ProjectPreview({ screenshot, altText, featured = false }) {
+function ProjectPreview({ screenshot, altText, featured = false, href, linkLabel }) {
   if (screenshot) {
+    const image = (
+      <img
+        src={screenshot}
+        alt={altText}
+        loading="lazy"
+        decoding="async"
+        className="h-full w-full object-cover"
+      />
+    )
+
     return (
       <div className={`overflow-hidden rounded-card border border-border bg-background shadow-card ${featured ? 'aspect-[16/9]' : 'aspect-[16/10]'}`}>
-        <img
-          src={screenshot}
-          alt={altText}
-          loading="lazy"
-          decoding="async"
-          className="h-full w-full object-cover"
-        />
+        {href ? (
+          <a
+            href={href}
+            target="_blank"
+            rel="noreferrer"
+            aria-label={linkLabel}
+            className="block h-full w-full cursor-pointer transition-opacity duration-200 hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-inset"
+          >
+            {image}
+          </a>
+        ) : image}
       </div>
     )
   }

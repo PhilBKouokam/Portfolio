@@ -15,7 +15,16 @@ function ProjectCard({ project, actions, index }) {
       transition={{ duration: 0.4, delay: prefersReducedMotion ? 0 : index * 0.08, ease: 'easeOut' }}
       className="flex h-full flex-col rounded-card border border-border bg-surface p-4 transition-[border-color,transform,box-shadow] duration-200 hover:-translate-y-1 hover:border-slate-600 hover:shadow-card sm:p-5"
     >
-      <ProjectPreview screenshot={project.screenshot} altText={project.altText} />
+      <ProjectPreview
+        screenshot={project.screenshot}
+        altText={project.altText}
+        href={project.linkScreenshotToGithub ? project.github : undefined}
+        linkLabel={
+          project.linkScreenshotToGithub
+            ? `View the ${project.title} repository on GitHub (opens in a new tab)`
+            : undefined
+        }
+      />
       <div className="flex flex-1 flex-col px-1 pt-7 pb-2 sm:px-2">
         <h3 className="text-2xl font-semibold tracking-tight text-foreground sm:text-3xl">
           {project.title}

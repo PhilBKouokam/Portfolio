@@ -32,7 +32,7 @@ export const projectsContent = {
     },
     {
       id: 'cloud-engineering',
-      title: 'Cloud Engineering',
+      title: 'Cloud Engineering Projects',
       projectIds: ['aws-highly-available-web-application'],
     },
     {
@@ -109,7 +109,7 @@ export const projectsContent = {
       title: 'AWS Highly Available Web Application',
       label: 'Cloud Engineering',
       tagline: 'Highly available, automatically scaling AWS infrastructure.',
-      description: 'Designed and deployed a highly available web application on AWS using Amazon EC2, Elastic Load Balancing, Auto Scaling, CloudWatch, and Amazon SNS. The infrastructure automatically scales with demand, distributes traffic across multiple EC2 instances, monitors application health, and improves fault tolerance through automated recovery mechanisms.',
+      description: 'Designed and deployed a highly available web application on AWS using Amazon EC2, Elastic Load Balancing, Auto Scaling, CloudWatch, Amazon SNS, and IAM. The infrastructure automatically distributes traffic, scales with demand, monitors application health, and improves fault tolerance through automated recovery.',
       technologies: [
         'AWS',
         'Amazon EC2',
@@ -137,6 +137,7 @@ export const projectsContent = {
         'AWS Architecture Documentation',
       ],
       lessonsLearned: 'Reliable cloud infrastructure depends on understanding how traffic, compute capacity, health signals, permissions, and recovery mechanisms influence one another.',
+      linkScreenshotToGithub: true,
       screenshot: awsHighlyAvailableShot,
       altText: 'Architecture diagram for the AWS highly available web application',
     },
