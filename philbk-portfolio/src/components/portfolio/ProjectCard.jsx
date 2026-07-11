@@ -1,5 +1,6 @@
 import { motion, useReducedMotion } from 'framer-motion'
 import { Check } from 'lucide-react'
+import Badge from '../ui/Badge'
 import ProjectActions from '../ui/ProjectActions'
 import ProjectPreview from '../ui/ProjectPreview'
 import TechList from '../ui/TechList'
@@ -29,6 +30,11 @@ function ProjectCard({ project, actions, index }) {
         <h3 className="text-2xl font-semibold tracking-tight text-foreground sm:text-3xl">
           {project.title}
         </h3>
+        {project.titleBadge ? (
+          <div className="mt-3">
+            <Badge>{project.titleBadge}</Badge>
+          </div>
+        ) : null}
         <p className="mt-3 text-sm leading-6 text-muted sm:text-base sm:leading-7">
           {project.description}
         </p>
@@ -49,6 +55,7 @@ function ProjectCard({ project, actions, index }) {
             liveUrl={project.liveDemo}
             githubUrl={project.github}
             readmeUrl={project.readme}
+            loomVideoUrl={project.loomVideo}
             labels={actions}
           />
         </div>

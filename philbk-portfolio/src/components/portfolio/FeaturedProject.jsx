@@ -1,4 +1,5 @@
 import { motion, useReducedMotion } from 'framer-motion'
+import Badge from '../ui/Badge'
 import ProjectActions from '../ui/ProjectActions'
 import ProjectPreview from '../ui/ProjectPreview'
 import TechList from '../ui/TechList'
@@ -28,6 +29,11 @@ function FeaturedProject({ project, actions, details }) {
           <h3 className="mt-3 text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
             {project.title}
           </h3>
+          {project.titleBadge ? (
+            <div className="mt-3">
+              <Badge>{project.titleBadge}</Badge>
+            </div>
+          ) : null}
           <p className="mt-4 max-w-xl text-base leading-7 text-muted">
             {project.description}
           </p>
@@ -37,6 +43,8 @@ function FeaturedProject({ project, actions, details }) {
               projectName={project.title}
               liveUrl={project.liveDemo}
               githubUrl={project.github}
+              readmeUrl={project.readme}
+              loomVideoUrl={project.loomVideo}
               labels={actions}
             />
           </div>

@@ -13,6 +13,7 @@ export const projectsContent = {
       'These projects show how I connect state, API contracts, authentication, business rules, databases, and deployment into one traceable flow. The work is not only making each layer function; it is understanding how a decision in one layer changes the behavior of the others.',
   },
   actions: {
+    loomVideoLabel: '🎥 See How It Works (2 min)',
     liveDemoLabel: 'Live Demo',
     githubLabel: 'GitHub',
     repositoryLabel: 'Repository',
@@ -63,10 +64,12 @@ export const projectsContent = {
   projects: [
     {
       id: 'caloriebank', slug: 'caloriebank', title: 'CalorieBank', label: 'Flagship project',
+      titleBadge: '⭐ Featured Project',
       tagline: 'A production-ready calorie banking platform.',
-      description: 'A production-ready calorie banking platform designed to make daily nutrition decisions clearer, more flexible, and easier to sustain.',
+      description: 'A production-ready full-stack calorie banking platform that helps users budget calories throughout the week instead of tracking one day at a time. Built with React, Node.js, Express, MongoDB, JWT authentication, and AWS S3.',
       technologies: ['React', 'Node.js', 'Express', 'MongoDB', 'AWS'], featured: true,
       liveDemo: 'https://caloriebank-pi.vercel.app/', github: 'https://github.com/PhilBKouokam/CalorieBank',
+      loomVideo: 'https://www.loom.com/share/3a0f06928e004bad80cd4ae181f65d1c',
       architecture: 'A component-driven React client backed by a REST API, persistent MongoDB models, and a deployment structure designed for production.',
       engineeringChallenges: 'Translating calorie banking into predictable application state while keeping daily balances and user feedback consistent.',
       problemsSolved: 'Turns fragmented daily tracking into a clearer system for understanding available calories across changing routines.',
