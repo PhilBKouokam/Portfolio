@@ -10,6 +10,7 @@ const links = {
 }
 
 const email = 'kouokambryan@gmail.com'
+const siteUrl = import.meta.env?.VITE_SITE_URL || 'https://philbk.dev'
 
 export const siteContent = {
   name: 'PhilBK Portfolio',
@@ -29,8 +30,8 @@ export const siteContent = {
   seo: {
     title: 'Phillip-Bryan Kouokam | Full-Stack Engineer',
     description:
-      'Full-Stack Engineer who traces data flow across React, Express, MongoDB, and AWS to build maintainable production applications.',
-    url: import.meta.env?.VITE_SITE_URL || '',
+      'Portfolio of Phillip-Bryan Kouokam, a Full-Stack Engineer building React, Express, MongoDB, and AWS projects with a systems-first engineering approach.',
+    url: siteUrl,
     locale: 'en_US',
     language: 'en',
     socialCard: 'summary_large_image',

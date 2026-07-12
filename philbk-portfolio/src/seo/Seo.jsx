@@ -30,6 +30,38 @@ function updateCanonical(url) {
   if (!existingCanonical) document.head.append(canonical)
 }
 
+function updateStructuredData(url) {
+  const scriptId = 'structured-professional-profile'
+  let script = document.getElementById(scriptId)
+
+  if (!script) {
+    script = document.createElement('script')
+    script.id = scriptId
+    script.type = 'application/ld+json'
+    document.head.append(script)
+  }
+
+  script.textContent = JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'Person',
+    name: siteContent.person.name,
+    jobTitle: siteContent.person.professionalTitle,
+    url,
+    email: `mailto:${siteContent.contact.email}`,
+    sameAs: [siteContent.links.github, siteContent.links.linkedin],
+    knowsAbout: [
+      'React',
+      'JavaScript',
+      'Node.js',
+      'Express.js',
+      'MongoDB',
+      'AWS',
+      'REST APIs',
+      'Full-Stack Software Engineering',
+    ],
+  })
+}
+
 function Seo({
   title = defaultMetadata.title,
   description = defaultMetadata.description,
@@ -55,6 +87,10 @@ function Seo({
       property: 'og:description',
       content: description,
     })
+    upsertMeta('meta[property="og:url"]', {
+      property: 'og:url',
+      content: canonicalUrl,
+    })
     upsertMeta('meta[name="twitter:card"]', {
       name: 'twitter:card',
       content: siteContent.seo.socialCard,
@@ -67,7 +103,12 @@ function Seo({
       name: 'twitter:description',
       content: description,
     })
+    upsertMeta('meta[name="twitter:url"]', {
+      name: 'twitter:url',
+      content: canonicalUrl,
+    })
     updateCanonical(canonicalUrl)
+    updateStructuredData(canonicalUrl)
   }, [canonicalUrl, description, robots, title])
 
   return null

@@ -11,6 +11,7 @@ function contentMetadata() {
     '__SITE_NAME__': siteContent.name,
     '__SITE_TITLE__': siteContent.seo.title,
     '__SITE_DESCRIPTION__': siteContent.seo.description,
+    '__SITE_URL__': siteContent.seo.url,
     '__SITE_LOCALE__': siteContent.seo.locale,
     '__SOCIAL_CARD__': siteContent.seo.socialCard,
     '__NOT_FOUND_TITLE__': siteContent.pages.notFound.seoTitle,

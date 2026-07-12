@@ -5,14 +5,13 @@ function ProjectActions({ projectName, liveUrl, githubUrl, readmeUrl, loomVideoU
   const projectLabels = labels.projectOverrides?.[projectName] ?? labels
   const shouldShowUnavailableLiveDemo = !liveUrl && !readmeUrl
 
-  const standardActions = (
-    <>
+  return (
+    <div className="flex flex-wrap gap-3">
       {liveUrl ? (
         <Button
           href={liveUrl}
           target="_blank"
           rel="noreferrer"
-          variant={loomVideoUrl ? 'secondary' : 'primary'}
           aria-label={`View ${projectName} live demo (opens in a new tab)`}
         >
           {labels.liveDemoLabel}
@@ -37,11 +36,24 @@ function ProjectActions({ projectName, liveUrl, githubUrl, readmeUrl, loomVideoU
           href={githubUrl}
           target="_blank"
           rel="noreferrer"
-          variant={liveUrl || loomVideoUrl ? 'secondary' : 'primary'}
+          variant={liveUrl ? 'secondary' : 'primary'}
           aria-label={`View ${projectName} on GitHub (opens in a new tab)`}
         >
           <Code2 aria-hidden="true" size={17} />
           {liveUrl || loomVideoUrl ? labels.githubLabel : projectLabels.repositoryLabel}
+        </Button>
+      ) : null}
+
+      {loomVideoUrl ? (
+        <Button
+          href={loomVideoUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          variant="secondary"
+          aria-label={`Watch the ${projectName} two-minute demo video (opens in a new tab)`}
+        >
+          {labels.loomVideoLabel}
+          <ExternalLink aria-hidden="true" size={16} />
         </Button>
       ) : null}
 
@@ -57,32 +69,6 @@ function ProjectActions({ projectName, liveUrl, githubUrl, readmeUrl, loomVideoU
           <ExternalLink aria-hidden="true" size={16} />
         </Button>
       ) : null}
-    </>
-  )
-
-  if (loomVideoUrl) {
-    return (
-      <div className="flex flex-col items-start gap-3">
-        <Button
-          href={loomVideoUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label={`Watch the ${projectName} two-minute demo video (opens in a new tab)`}
-        >
-          {labels.loomVideoLabel}
-          <ExternalLink aria-hidden="true" size={16} />
-        </Button>
-
-        <div className="flex flex-wrap gap-3">
-          {standardActions}
-        </div>
-      </div>
-    )
-  }
-
-  return (
-    <div className="flex flex-wrap gap-3">
-      {standardActions}
     </div>
   )
 }
