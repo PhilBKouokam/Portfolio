@@ -5,6 +5,67 @@ function ProjectActions({ projectName, liveUrl, githubUrl, readmeUrl, loomVideoU
   const projectLabels = labels.projectOverrides?.[projectName] ?? labels
   const shouldShowUnavailableLiveDemo = !liveUrl && !readmeUrl
 
+  if (loomVideoUrl) {
+    return (
+      <div className="flex w-full flex-col gap-3">
+        <Button
+          href={loomVideoUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="w-full"
+          aria-label={`Watch the ${projectName} demo video (opens in a new tab)`}
+        >
+          {labels.loomVideoLabel}
+          <ExternalLink aria-hidden="true" size={16} />
+        </Button>
+
+        <div className="flex w-full flex-col gap-3 sm:flex-row">
+          {liveUrl ? (
+            <Button
+              href={liveUrl}
+              target="_blank"
+              rel="noreferrer"
+              variant="secondary"
+              className="w-full sm:flex-1"
+              aria-label={`View ${projectName} live demo (opens in a new tab)`}
+            >
+              {labels.liveDemoLabel}
+              <ExternalLink aria-hidden="true" size={16} />
+            </Button>
+          ) : null}
+
+          {githubUrl ? (
+            <Button
+              href={githubUrl}
+              target="_blank"
+              rel="noreferrer"
+              variant="secondary"
+              className="w-full sm:flex-1"
+              aria-label={`View ${projectName} on GitHub (opens in a new tab)`}
+            >
+              <Code2 aria-hidden="true" size={17} />
+              {labels.githubLabel}
+            </Button>
+          ) : null}
+
+          {readmeUrl ? (
+            <Button
+              href={readmeUrl}
+              target="_blank"
+              rel="noreferrer"
+              variant="secondary"
+              className="w-full sm:flex-1"
+              aria-label={`View the ${projectName} README on GitHub (opens in a new tab)`}
+            >
+              {projectLabels.readmeLabel}
+              <ExternalLink aria-hidden="true" size={16} />
+            </Button>
+          ) : null}
+        </div>
+      </div>
+    )
+  }
+
   return (
     <div className="flex flex-wrap gap-3">
       {liveUrl ? (
@@ -40,20 +101,7 @@ function ProjectActions({ projectName, liveUrl, githubUrl, readmeUrl, loomVideoU
           aria-label={`View ${projectName} on GitHub (opens in a new tab)`}
         >
           <Code2 aria-hidden="true" size={17} />
-          {liveUrl || loomVideoUrl ? labels.githubLabel : projectLabels.repositoryLabel}
-        </Button>
-      ) : null}
-
-      {loomVideoUrl ? (
-        <Button
-          href={loomVideoUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          variant="secondary"
-          aria-label={`Watch the ${projectName} two-minute demo video (opens in a new tab)`}
-        >
-          {labels.loomVideoLabel}
-          <ExternalLink aria-hidden="true" size={16} />
+          {liveUrl ? labels.githubLabel : projectLabels.repositoryLabel}
         </Button>
       ) : null}
 
