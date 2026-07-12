@@ -13,7 +13,7 @@ export const projectsContent = {
       'These projects show how I connect state, API contracts, authentication, business rules, databases, and deployment into one traceable flow. The work is not only making each layer function; it is understanding how a decision in one layer changes the behavior of the others.',
   },
   actions: {
-    loomVideoLabel: '▶ Watch Demo',
+    loomVideoLabel: '▶ Watch 2 min Demo',
     liveDemoLabel: 'Live Demo',
     githubLabel: 'GitHub',
     repositoryLabel: 'Repository',
