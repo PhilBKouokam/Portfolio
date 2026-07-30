@@ -1,9 +1,9 @@
 export const skillsContent = {
   section: {
-    eyebrow: 'Technical skills',
-    heading: 'A practical stack for building complete products.',
+    eyebrow: 'Technologies',
+    heading: 'The tools I use to bring products to life.',
     description:
-      'Technologies I use across interface development, application logic, data persistence, cloud infrastructure, and delivery.',
+      'Technology is a means, not the message. I choose tools according to the problem, the people using the product, and the system it needs to support.',
   },
   categories: [
     {
@@ -13,9 +13,10 @@ export const skillsContent = {
       skills: [
         'React',
         'JavaScript',
-        'HTML5',
-        'CSS3',
+        'HTML',
+        'CSS',
         'Tailwind CSS',
+        'Framer Motion',
         'React Router',
         'Context API',
         'Responsive Design',
@@ -28,22 +29,34 @@ export const skillsContent = {
       skills: ['Node.js', 'Express.js', 'REST APIs', 'Authentication'],
     },
     {
-      id: 'database',
-      category: 'Database',
+      id: 'data',
+      category: 'Data',
       description: 'Structured persistence and application-focused data modeling.',
       skills: ['MongoDB', 'Mongoose'],
     },
     {
-      id: 'cloud',
-      category: 'Cloud',
+      id: 'cloud-delivery',
+      category: 'Cloud & Delivery',
       description: 'Production delivery, storage, and infrastructure across modern cloud platforms.',
-      skills: ['AWS', 'AWS S3', 'Vercel', 'Render'],
+      skills: ['AWS', 'AWS S3', 'AWS Lambda', 'Amazon EC2', 'Vercel', 'Render', 'Git', 'GitHub'],
     },
     {
-      id: 'developer-tools',
-      category: 'Developer Tools',
-      description: 'Tools supporting version control, API validation, and efficient development.',
-      skills: ['Git', 'GitHub', 'Postman', 'VS Code'],
+      id: 'ai-workflows',
+      category: 'AI Development Workflow',
+      description: 'AI-assisted investigation, architecture, implementation, debugging, review, and documentation—with human verification at every stage.',
+      skills: [
+        'OpenAI Codex',
+        'Claude Code',
+        'Cursor',
+        'ChatGPT',
+        'Investigation',
+        'Architecture',
+        'Implementation',
+        'Debugging',
+        'Code review',
+        'Documentation',
+        'Verification',
+      ],
     },
   ],
 }

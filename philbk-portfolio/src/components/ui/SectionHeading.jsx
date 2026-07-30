@@ -21,7 +21,12 @@ function SectionHeading({
           {eyebrow}
         </p>
       ) : null}
-      <Heading id={headingId} className="text-3xl font-semibold tracking-tight text-balance text-foreground sm:text-4xl lg:text-5xl">
+      <Heading
+        id={headingId}
+        tabIndex="-1"
+        data-section-heading
+        className="text-3xl font-semibold tracking-tight text-balance text-foreground sm:text-4xl lg:text-5xl"
+      >
         {title}
       </Heading>
       {description ? (

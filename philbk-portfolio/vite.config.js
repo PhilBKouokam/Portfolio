@@ -14,6 +14,7 @@ function contentMetadata() {
     '__SITE_URL__': siteContent.seo.url,
     '__SITE_LOCALE__': siteContent.seo.locale,
     '__SOCIAL_CARD__': siteContent.seo.socialCard,
+    '__SOCIAL_IMAGE__': new URL(siteContent.seo.socialImage, siteContent.seo.url).href,
     '__NOT_FOUND_TITLE__': siteContent.pages.notFound.seoTitle,
     '__NOT_FOUND_DESCRIPTION__': siteContent.pages.notFound.seoDescription,
   }

@@ -6,12 +6,14 @@ import { siteContent } from '../../content/site'
 import Button from '../ui/Button'
 import Container from './Container'
 import MobileNavigation from './MobileNavigation'
+import { navigateToSection } from '../../utils/navigation'
 
 function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const menuTriggerRef = useRef(null)
   const prefersReducedMotion = useReducedMotion()
   const closeMenu = useCallback(() => setIsMenuOpen(false), [])
+  const isHomePage = window.location.pathname === '/'
 
   return (
     <motion.header
@@ -22,7 +24,8 @@ function Header() {
     >
       <Container className="flex h-18 items-center justify-between">
         <a
-          href={`#${sectionAnchors.top}`}
+          href={isHomePage ? `#${sectionAnchors.top}` : '/'}
+          onClick={isHomePage ? (event) => navigateToSection(event, `#${sectionAnchors.top}`) : undefined}
           aria-label={navigationContent.homeLabel}
           className="text-xl font-bold tracking-[-0.05em] text-foreground transition-colors hover:text-primary-hover"
         >
@@ -34,8 +37,9 @@ function Header() {
             {navigationContent.items.map((item) => (
               <li key={item.label}>
                 <a
-                  href={item.href}
-                  className="block rounded-lg px-3.5 py-2 text-sm font-medium text-muted transition-colors hover:bg-white/5 hover:text-foreground"
+                  href={isHomePage ? item.href : `/${item.href}`}
+                  onClick={isHomePage ? (event) => navigateToSection(event, item.href) : undefined}
+                  className="block rounded-lg px-3 py-2 text-[0.8125rem] font-medium text-muted transition-colors hover:bg-white/5 hover:text-foreground focus-visible:bg-white/5 focus-visible:text-foreground xl:px-3.5 xl:text-sm"
                 >
                   {item.label}
                 </a>
@@ -45,7 +49,7 @@ function Header() {
         </nav>
 
         <div className="hidden lg:block">
-          <Button href={siteContent.links.resume} size="sm" download={siteContent.resume.filename}>
+          <Button href={siteContent.links.resume} size="sm">
             {siteContent.resume.label}
           </Button>
         </div>

@@ -12,7 +12,7 @@ function CertificationsSection() {
     <section
       id={sectionAnchors.certifications}
       aria-labelledby="certifications-heading"
-      className="border-t border-border/60 py-20 sm:py-24 lg:py-32"
+      className="border-t border-border/60 py-20 sm:py-28 lg:py-36"
     >
       <Container>
         <SectionHeading

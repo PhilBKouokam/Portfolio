@@ -11,7 +11,7 @@ function CertificationCard({ certification, index }) {
           <ArrowUpRight aria-hidden="true" size={18} className="text-muted" />
         ) : null}
       </div>
-      <p className="mt-12 text-sm font-medium text-muted">{certification.issuer}</p>
+      <p className="mt-9 text-sm font-medium text-muted">{certification.issuer}</p>
       <h3 className="mt-2 max-w-md text-xl font-semibold leading-7 tracking-tight text-foreground sm:text-2xl sm:leading-8">
         {certification.title}
       </h3>
@@ -19,7 +19,7 @@ function CertificationCard({ certification, index }) {
   )
 
   const classes =
-    'block min-h-64 rounded-card border border-border bg-surface p-6 sm:p-7'
+    'block min-h-56 rounded-card border border-border bg-surface p-6 sm:p-7'
 
   if (certification.credentialUrl) {
     return (

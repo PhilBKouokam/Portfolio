@@ -12,7 +12,7 @@ function ContactSection() {
     <section
       id={sectionAnchors.contact}
       aria-labelledby="contact-heading"
-      className="border-t border-border/60 py-20 sm:py-24 lg:py-32"
+      className="border-t border-border/60 py-20 sm:py-28 lg:py-36"
     >
       <Container>
         <motion.div
@@ -26,6 +26,8 @@ function ContactSection() {
           </p>
           <h2
             id="contact-heading"
+            tabIndex="-1"
+            data-section-heading
             className="mt-4 max-w-4xl text-4xl font-semibold tracking-[-0.04em] text-balance text-foreground sm:text-5xl lg:text-7xl"
           >
             {content.heading}
@@ -45,7 +47,6 @@ function ContactSection() {
                       href={link.href}
                       target={isExternal ? '_blank' : undefined}
                       rel={isExternal ? 'noreferrer' : undefined}
-                      download={link.id === 'resume' ? siteContent.resume.filename : undefined}
                       aria-label={`${link.label}${isExternal ? ' (opens in a new tab)' : ''}`}
                       className="group flex min-h-16 items-center justify-between border-t border-border py-4 text-base font-semibold text-foreground transition-colors hover:border-primary hover:text-primary-hover"
                     >

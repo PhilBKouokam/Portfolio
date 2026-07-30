@@ -11,7 +11,7 @@ function PrinciplesSection() {
     <section
       id={sectionAnchors.principles}
       aria-labelledby="principles-heading"
-      className="bg-surface/35 py-20 sm:py-24 lg:py-32"
+      className="border-t border-border/60 bg-surface/30 py-20 sm:py-28 lg:py-36"
     >
       <Container>
         <motion.div
@@ -27,9 +27,9 @@ function PrinciplesSection() {
             headingId="principles-heading"
           />
 
-          <ol className="mt-12 grid gap-x-8 gap-y-10 sm:mt-16 md:grid-cols-2">
+          <ol className="mt-12 grid gap-x-8 gap-y-10 sm:mt-16 md:grid-cols-2 lg:grid-cols-3">
             {principlesContent.principles.map((principle, index) => (
-              <li key={principle.id} className="border-t border-border pt-6 md:min-h-48">
+              <li key={principle.id} className="border-t border-border pt-6 md:min-h-56">
                 <span className="font-mono text-xs text-primary" aria-hidden="true">
                   {String(index + 1).padStart(2, '0')}
                 </span>

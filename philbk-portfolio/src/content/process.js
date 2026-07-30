@@ -1,73 +1,40 @@
 export const processContent = {
   section: {
-    eyebrow: 'Development process',
-    heading: 'I trace systems, not symptoms.',
+    eyebrow: 'How I Build',
+    heading: 'Thoughtful engineering from investigation to release.',
     description:
-      'I approach an application as a connected flow of entry points, dependencies, state, requests, business rules, and persisted data. That perspective shapes how I architect, build, and debug software.',
-  },
-  systemView: {
-    label: 'A request through the system',
-    nodes: [
-      'Browser',
-      'main.jsx',
-      'Component tree',
-      'HTTP request',
-      'Express route',
-      'Controller',
-      'Business logic',
-      'MongoDB',
-    ],
-    explanation:
-      'When an error appears in the interface, I follow the data backward through this chain. The component displaying a problem is evidence—not automatically the source.',
+      'AI accelerates the work inside this process. Product judgment, systems thinking, and verification still guide every decision.',
   },
   steps: [
     {
-      id: 'understand',
-      title: 'Understand the system',
+      id: 'investigate',
+      title: 'Investigate',
       description:
-        'Map entry points, dependencies, data ownership, and the boundaries between browser, client, server, and database.',
+        'Understand the people, problem, constraints, assumptions, risks, and definition of success before proposing a solution.',
     },
     {
       id: 'architect',
-      title: 'Design the architecture',
+      title: 'Architect',
       description:
-        'Define responsibilities and interfaces before implementation so each layer has a clear reason to change.',
+        'Design a simple, maintainable system and establish clear boundaries, data flows, and technical decisions before implementation.',
     },
     {
       id: 'build',
-      title: 'Build modular components',
+      title: 'Build',
       description:
-        'Create focused units with explicit inputs, predictable behavior, and composition paths that remain understandable.',
+        'Use modern AI development workflows alongside sound engineering practices to implement reliable software efficiently.',
     },
     {
-      id: 'connect',
-      title: 'Connect frontend and backend',
+      id: 'verify',
+      title: 'Verify',
       description:
-        'Treat HTTP contracts as shared boundaries, including request shape, authentication, failure states, and response behavior.',
+        'Review, test, challenge, and refine each implementation for correctness, accessibility, maintainability, and user experience.',
     },
     {
-      id: 'validate',
-      title: 'Validate data flow',
+      id: 'ship',
+      title: 'Ship',
       description:
-        'Confirm where data originates, how it changes, who consumes it, and whether each transition preserves the intended state.',
-    },
-    {
-      id: 'debug',
-      title: 'Debug dependencies',
-      description:
-        'Trace unexpected behavior across state, props, context, APIs, authentication, business logic, and persistence.',
-    },
-    {
-      id: 'deploy',
-      title: 'Deploy deliberately',
-      description:
-        'Verify environment configuration, production builds, network boundaries, and platform behavior—not only local success.',
-    },
-    {
-      id: 'iterate',
-      title: 'Iterate from evidence',
-      description:
-        'Use observed behavior and product needs to refine the system without weakening its existing contracts.',
+        'Release the product, learn from real usage, gather feedback, and continue improving it.',
     },
   ],
 }

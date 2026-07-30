@@ -1,34 +1,46 @@
 export const principlesContent = {
   section: {
-    eyebrow: 'Engineering principles',
-    heading: 'The decisions behind the code.',
+    eyebrow: 'Principles',
+    heading: 'The standards behind every decision.',
     description:
-      'These principles guide how I understand a system, choose an implementation, and keep software workable as it changes.',
+      'Technology changes quickly. These principles keep the work grounded in usefulness, clarity, responsibility, and trust.',
   },
   principles: [
     {
-      id: 'systems-thinking',
-      title: 'Systems Thinking',
+      id: 'people-before-technology',
+      title: 'People before technology.',
       description:
-        'I understand software by tracing the flow of information through every layer of the application.',
+        'Technology should serve the people using the product, not become the purpose of the product.',
     },
     {
-      id: 'clarity-before-complexity',
-      title: 'Clarity Before Complexity',
+      id: 'right-problem',
+      title: 'Solve the right problem.',
       description:
-        'I prefer understanding why code works before making it more sophisticated.',
+        'The quality of a solution depends on the quality of the question and the depth of understanding behind it.',
     },
     {
-      id: 'maintainable-architecture',
-      title: 'Maintainable Architecture',
+      id: 'systems-over-shortcuts',
+      title: 'Systems outperform shortcuts.',
       description:
-        'I design systems where content, presentation, and behavior remain clearly separated.',
+        'Reliable products come from clear architecture, intentional decisions, and understanding how every part fits together.',
     },
     {
-      id: 'continuous-iteration',
-      title: 'Continuous Iteration',
+      id: 'ai-accelerates',
+      title: 'AI accelerates engineering. It does not replace thinking.',
       description:
-        'I treat software as an evolving product that improves through feedback and refinement.',
+        'AI can increase speed and capability, but judgment, verification, product understanding, and responsibility remain essential.',
+    },
+    {
+      id: 'earn-trust',
+      title: 'Great software earns trust.',
+      description:
+        'People return when a product is useful, reliable, understandable, and respectful of their time.',
+    },
+    {
+      id: 'shipping-learns',
+      title: 'Shipping is the beginning of learning.',
+      description:
+        'Real usage reveals what assumptions and prototypes cannot.',
     },
   ],
 }

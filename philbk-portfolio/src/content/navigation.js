@@ -1,9 +1,9 @@
 export const sectionAnchors = {
   top: 'top',
-  about: 'about',
-  projects: 'projects',
-  skills: 'skills',
-  process: 'process',
+  why: 'why-i-build',
+  how: 'how-i-build',
+  products: 'products',
+  technologies: 'technologies',
   principles: 'principles',
   certifications: 'certifications',
   github: 'github',
@@ -18,14 +18,11 @@ export const navigationContent = {
   menuOpenLabel: 'Open navigation menu',
   menuCloseLabel: 'Close navigation menu',
   items: [
-    { id: 'about', label: 'About', href: `#${sectionAnchors.about}` },
-    { id: 'projects', label: 'Projects', href: `#${sectionAnchors.projects}` },
-    { id: 'skills', label: 'Skills', href: `#${sectionAnchors.skills}` },
-    {
-      id: 'certifications',
-      label: 'Certifications',
-      href: `#${sectionAnchors.certifications}`,
-    },
+    { id: 'why', label: 'Why I Build', href: `#${sectionAnchors.why}` },
+    { id: 'how', label: 'How I Build', href: `#${sectionAnchors.how}` },
+    { id: 'products', label: 'Products', href: `#${sectionAnchors.products}` },
+    { id: 'principles', label: 'Principles', href: `#${sectionAnchors.principles}` },
+    { id: 'technologies', label: 'Technologies', href: `#${sectionAnchors.technologies}` },
     { id: 'contact', label: 'Contact', href: `#${sectionAnchors.contact}` },
   ],
 }

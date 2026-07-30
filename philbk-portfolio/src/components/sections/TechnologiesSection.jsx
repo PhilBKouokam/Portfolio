@@ -5,14 +5,14 @@ import SectionHeading from '../ui/SectionHeading'
 import { sectionAnchors } from '../../content/navigation'
 import { skillsContent } from '../../content/skills'
 
-function SkillsSection() {
+function TechnologiesSection() {
   const prefersReducedMotion = useReducedMotion()
 
   return (
     <section
-      id={sectionAnchors.skills}
-      aria-labelledby="skills-heading"
-      className="bg-surface/35 py-20 sm:py-24 lg:py-32"
+      id={sectionAnchors.technologies}
+      aria-labelledby="technologies-heading"
+      className="border-t border-border/60 bg-surface/30 py-20 sm:py-28 lg:py-36"
     >
       <Container>
         <motion.div
@@ -25,7 +25,7 @@ function SkillsSection() {
             eyebrow={skillsContent.section.eyebrow}
             title={skillsContent.section.heading}
             description={skillsContent.section.description}
-            headingId="skills-heading"
+            headingId="technologies-heading"
           />
 
           <div className="mt-12 sm:mt-16">
@@ -39,4 +39,4 @@ function SkillsSection() {
   )
 }
 
-export default SkillsSection
+export default TechnologiesSection

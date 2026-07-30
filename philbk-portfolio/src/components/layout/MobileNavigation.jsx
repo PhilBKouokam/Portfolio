@@ -3,24 +3,36 @@ import { X } from 'lucide-react'
 import Button from '../ui/Button'
 import { navigationContent, sectionAnchors } from '../../content/navigation'
 import { siteContent } from '../../content/site'
+import { navigateToSection } from '../../utils/navigation'
 
 function MobileNavigation({ isOpen, items, onClose, triggerRef }) {
   const dialogRef = useRef(null)
+  const closeButtonRef = useRef(null)
+  const shouldRestoreTriggerFocusRef = useRef(true)
 
   useEffect(() => {
     if (!isOpen) return undefined
 
     const dialog = dialogRef.current
     const menuTrigger = triggerRef.current
+    shouldRestoreTriggerFocusRef.current = true
     dialog.showModal()
+    closeButtonRef.current?.focus()
 
     return () => {
       if (dialog.open) dialog.close()
-      menuTrigger?.focus()
+      if (shouldRestoreTriggerFocusRef.current) menuTrigger?.focus()
     }
   }, [isOpen, triggerRef])
 
   if (!isOpen) return null
+  const isHomePage = window.location.pathname === '/'
+  const navigateAfterClose = (event, href) => {
+    event.preventDefault()
+    shouldRestoreTriggerFocusRef.current = false
+    onClose()
+    window.requestAnimationFrame(() => navigateToSection(null, href))
+  }
 
   return (
     <dialog
@@ -38,15 +50,18 @@ function MobileNavigation({ isOpen, items, onClose, triggerRef }) {
       >
         <div className="flex items-center justify-between border-b border-border/70 pb-5">
           <a
-            href={`#${sectionAnchors.top}`}
-            onClick={onClose}
+            href={isHomePage ? `#${sectionAnchors.top}` : '/'}
+            onClick={(event) => {
+              if (isHomePage) navigateAfterClose(event, `#${sectionAnchors.top}`)
+              else onClose()
+            }}
             className="text-lg font-bold tracking-[-0.04em] text-foreground"
           >
             {siteContent.wordmark}
           </a>
           <button
+            ref={closeButtonRef}
             type="button"
-            autoFocus
             onClick={onClose}
             aria-label={navigationContent.menuCloseLabel}
             className="grid size-11 place-items-center rounded-button text-muted transition-colors hover:bg-white/5 hover:text-foreground"
@@ -60,8 +75,11 @@ function MobileNavigation({ isOpen, items, onClose, triggerRef }) {
             {items.map((item) => (
               <li key={item.label}>
                 <a
-                  href={item.href}
-                  onClick={onClose}
+                  href={isHomePage ? item.href : `/${item.href}`}
+                  onClick={(event) => {
+                    if (isHomePage) navigateAfterClose(event, item.href)
+                    else onClose()
+                  }}
                   className="block rounded-lg px-3 py-3.5 text-lg font-medium text-muted transition-colors hover:bg-white/5 hover:text-foreground"
                 >
                   {item.label}
@@ -74,7 +92,6 @@ function MobileNavigation({ isOpen, items, onClose, triggerRef }) {
         <Button
           href={siteContent.links.resume}
           className="w-full"
-          download={siteContent.resume.filename}
           onClick={onClose}
         >
           {siteContent.resume.label}

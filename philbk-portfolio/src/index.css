@@ -79,6 +79,14 @@ button:not(:disabled),
   outline-offset: 3px;
 }
 
+[data-section-heading][tabindex='-1']:focus {
+  outline: none;
+  text-decoration-line: underline;
+  text-decoration-color: var(--color-primary-hover);
+  text-decoration-thickness: 0.1em;
+  text-underline-offset: 0.16em;
+}
+
 ::selection {
   color: var(--color-foreground);
   background: rgb(59 130 246 / 0.4);
@@ -96,5 +104,19 @@ button:not(:disabled),
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+  }
+
+  a:hover,
+  button:hover,
+  article:hover {
+    transform: none !important;
+  }
+}
+
+@media (forced-colors: active) {
+  [data-section-heading][tabindex='-1']:focus {
+    outline: 2px solid CanvasText;
+    outline-offset: 0.2em;
+    text-decoration: none;
   }
 }

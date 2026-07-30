@@ -5,7 +5,7 @@ import ProjectActions from '../ui/ProjectActions'
 import ProjectPreview from '../ui/ProjectPreview'
 import TechList from '../ui/TechList'
 
-function ProjectCard({ project, actions, index }) {
+function ProjectCard({ project, actions, index, compact = false }) {
   const prefersReducedMotion = useReducedMotion()
 
   return (
@@ -14,7 +14,7 @@ function ProjectCard({ project, actions, index }) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.16 }}
       transition={{ duration: 0.4, delay: prefersReducedMotion ? 0 : index * 0.08, ease: 'easeOut' }}
-      className="flex h-full flex-col rounded-card border border-border bg-surface p-4 transition-[border-color,transform,box-shadow] duration-200 hover:-translate-y-1 hover:border-slate-600 hover:shadow-card sm:p-5"
+      className={`flex h-full flex-col rounded-card border border-border bg-surface p-4 transition-[border-color,transform,box-shadow] duration-200 hover:-translate-y-1 hover:border-slate-600 hover:shadow-card sm:p-5 ${compact ? 'hover:translate-y-0' : ''}`}
     >
       <ProjectPreview
         screenshot={project.screenshot}
@@ -35,27 +35,49 @@ function ProjectCard({ project, actions, index }) {
             <Badge>{project.titleBadge}</Badge>
           </div>
         ) : null}
-        <p className="mt-3 text-sm leading-6 text-muted sm:text-base sm:leading-7">
-          {project.description}
-        </p>
-        <TechList technologies={project.technologies} className="mt-5" />
+        {compact ? (
+          <p className="mt-3 text-sm leading-6 text-muted sm:text-base sm:leading-7">
+            {project.supportingSummary}
+          </p>
+        ) : null}
 
-        <ul className="mt-6 grid gap-2.5 text-sm text-muted sm:grid-cols-2">
-          {project.keyFeatures.map((feature) => (
-            <li key={feature} className="flex items-start gap-2">
-              <Check aria-hidden="true" className="mt-0.5 shrink-0 text-success" size={16} />
-              <span>{feature}</span>
-            </li>
-          ))}
-        </ul>
+        {!compact ? (
+          <>
+            <dl className="mt-5 grid gap-4 border-t border-border/80 pt-5">
+              <div>
+                <dt className="text-sm font-semibold text-foreground">The problem</dt>
+                <dd className="mt-2 text-sm leading-6 text-muted">{project.problemsSolved}</dd>
+              </div>
+              <div>
+                <dt className="text-sm font-semibold text-foreground">Product response</dt>
+                <dd className="mt-2 text-sm leading-6 text-muted">{project.description}</dd>
+              </div>
+              <div>
+                <dt className="text-sm font-semibold text-foreground">Engineering decisions</dt>
+                <dd className="mt-2 text-sm leading-6 text-muted">{project.architecture}</dd>
+              </div>
+            </dl>
+            <TechList technologies={project.technologies} className="mt-5" />
+            <ul className="mt-4 grid gap-2 text-sm text-muted sm:grid-cols-2">
+              {project.keyFeatures.map((feature) => (
+                <li key={feature} className="flex items-start gap-2">
+                  <Check aria-hidden="true" className="mt-0.5 shrink-0 text-success" size={16} />
+                  <span>{feature}</span>
+                </li>
+              ))}
+            </ul>
+          </>
+        ) : (
+          <TechList technologies={project.technologies} className="mt-5" />
+        )}
 
-        <div className="mt-auto pt-7">
+        <div className="mt-auto pt-6">
           <ProjectActions
             projectName={project.title}
             liveUrl={project.liveDemo}
             githubUrl={project.github}
             readmeUrl={project.readme}
-            loomVideoUrl={project.loomVideo}
+            loomVideoUrl={compact ? undefined : project.loomVideo}
             labels={actions}
           />
         </div>

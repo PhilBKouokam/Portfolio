@@ -19,6 +19,8 @@ function FeaturedProject({ project, actions, details }) {
         screenshot={project.screenshot}
         altText={project.altText}
         featured
+        href={project.liveDemo}
+        linkLabel={`Open the ${project.title} live product (opens in a new tab)`}
       />
 
       <div className="grid gap-10 px-1 pt-8 sm:px-2 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] lg:gap-16 lg:pt-10">

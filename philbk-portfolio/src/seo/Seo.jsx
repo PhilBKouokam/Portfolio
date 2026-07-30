@@ -34,6 +34,11 @@ function updateStructuredData(url) {
   const scriptId = 'structured-professional-profile'
   let script = document.getElementById(scriptId)
 
+  if (!url) {
+    script?.remove()
+    return
+  }
+
   if (!script) {
     script = document.createElement('script')
     script.id = scriptId
@@ -58,6 +63,8 @@ function updateStructuredData(url) {
       'AWS',
       'REST APIs',
       'Full-Stack Software Engineering',
+      'AI-assisted software development',
+      'Systems thinking',
     ],
   })
 }
@@ -91,6 +98,21 @@ function Seo({
       property: 'og:url',
       content: canonicalUrl,
     })
+    if (canonicalUrl) {
+      const socialImageUrl = new URL(siteContent.seo.socialImage, canonicalUrl).href
+      upsertMeta('meta[property="og:image"]', {
+        property: 'og:image',
+        content: socialImageUrl,
+      })
+      upsertMeta('meta[property="og:image:alt"]', {
+        property: 'og:image:alt',
+        content: 'Phillip-Bryan Kouokam — AI-Native Full-Stack Engineer',
+      })
+      upsertMeta('meta[name="twitter:image"]', {
+        name: 'twitter:image',
+        content: socialImageUrl,
+      })
+    }
     upsertMeta('meta[name="twitter:card"]', {
       name: 'twitter:card',
       content: siteContent.seo.socialCard,

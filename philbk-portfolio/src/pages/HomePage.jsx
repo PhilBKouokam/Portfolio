@@ -1,10 +1,9 @@
-import AboutSection from '../components/sections/AboutSection'
+import WhyIBuildSection from '../components/sections/WhyIBuildSection'
 import PageLayout from '../components/layout/PageLayout'
 import HeroSection from '../components/sections/HeroSection'
-import CoreTechnologiesSection from '../components/sections/CoreTechnologiesSection'
-import ProjectsSection from '../components/sections/ProjectsSection'
-import ProcessSection from '../components/sections/ProcessSection'
-import SkillsSection from '../components/sections/SkillsSection'
+import ProductsSection from '../components/sections/ProductsSection'
+import HowIBuildSection from '../components/sections/HowIBuildSection'
+import TechnologiesSection from '../components/sections/TechnologiesSection'
 import CertificationsSection from '../components/sections/CertificationsSection'
 import PrinciplesSection from '../components/sections/PrinciplesSection'
 import ContactSection from '../components/sections/ContactSection'
@@ -15,13 +14,12 @@ function HomePage() {
     <PageLayout>
       <Seo />
       <HeroSection />
-      <CoreTechnologiesSection />
-      <AboutSection />
-      <ProjectsSection />
-      <ProcessSection />
-      <SkillsSection />
-      <CertificationsSection />
+      <WhyIBuildSection />
+      <HowIBuildSection />
+      <ProductsSection />
       <PrinciplesSection />
+      <TechnologiesSection />
+      <CertificationsSection />
       <ContactSection />
     </PageLayout>
   )

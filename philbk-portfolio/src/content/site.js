@@ -1,40 +1,36 @@
-const resumeDocument = new URL(
-  '../assets/documents/phillip-bryan-kouokam-resume.pdf',
-  import.meta.url,
-).href
-
 const links = {
   github: 'https://github.com/PhilBKouokam',
   linkedin: 'https://www.linkedin.com/in/phillip-bryan-kouokam',
-  resume: resumeDocument,
+  resume: '/resume.pdf',
 }
 
 const email = 'kouokambryan@gmail.com'
 const siteUrl = import.meta.env?.VITE_SITE_URL || 'https://philbk.dev'
 
 export const siteContent = {
-  name: 'PhilBK Portfolio',
+  name: 'Phillip-Bryan Kouokam',
   wordmark: 'PBK',
   person: {
     name: 'Phillip-Bryan Kouokam',
-    professionalTitle: 'Full-Stack Engineer',
+    professionalTitle: 'AI-Native Full-Stack Engineer',
     professionalSummary:
-      'Systems-first engineering across React, Express, MongoDB, and AWS.',
+      'Thoughtful product engineering through systems thinking, modern AI development workflows, and a focus on real user problems.',
   },
   contact: { email },
   links,
   resume: {
-    label: 'Download Resume',
+    label: 'Résumé',
     filename: 'Phillip-Bryan-Kouokam-Resume.pdf',
   },
   seo: {
-    title: 'Phillip-Bryan Kouokam | Full-Stack Engineer',
+    title: 'Phillip-Bryan Kouokam | AI-Native Full-Stack Engineer',
     description:
-      'Portfolio of Phillip-Bryan Kouokam, a Full-Stack Engineer building React, Express, MongoDB, and AWS projects with a systems-first engineering approach.',
+      'AI-Native Full-Stack Engineer building thoughtful, production-ready products through systems thinking, modern AI development workflows, and a focus on real user problems.',
     url: siteUrl,
     locale: 'en_US',
     language: 'en',
     socialCard: 'summary_large_image',
+    socialImage: '/og.png',
   },
   socialLinks: [
     { id: 'github', label: 'GitHub', href: links.github, icon: 'code' },
@@ -45,26 +41,27 @@ export const siteContent = {
       icon: 'briefcase',
     },
     { id: 'email', label: 'Email', href: `mailto:${email}`, icon: 'mail' },
-    { id: 'resume', label: 'Resume', href: links.resume, icon: 'file' },
+    { id: 'resume', label: 'Résumé', href: links.resume, icon: 'file' },
   ],
   pages: {
     contact: {
       eyebrow: 'Contact',
-      heading: "Let's build something meaningful.",
+      heading: 'Let’s build something people will enjoy using.',
       description:
-        'If you are hiring for a frontend or full-stack role, or building a product that needs thoughtful engineering, I would be glad to hear from you.',
+        'You can expect thoughtful engineering, honest communication, and a consistent focus on solving the right problem well.',
       linksLabel: 'Contact and professional links',
     },
     footer: {
       copyright: '© 2026 Phillip-Bryan Kouokam',
-      technology: 'Built with React, Vite and Tailwind CSS.',
+      technology: 'Designed and built with care.',
+      backToTopLabel: 'Back to top',
     },
     notFound: {
       eyebrow: '404 error',
       title: 'Page not found',
-      description: 'The page you requested does not exist or may have moved.',
+      description: 'This route does not lead to a product—yet. The page may have moved or never existed.',
       actionLabel: 'Return home',
-      seoTitle: 'Page not found | PhilBK Portfolio',
+      seoTitle: 'Page not found | Phillip-Bryan Kouokam',
       seoDescription: 'The requested page could not be found.',
     },
   },

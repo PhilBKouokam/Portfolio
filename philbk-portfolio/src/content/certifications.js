@@ -1,9 +1,9 @@
 export const certificationsContent = {
   section: {
     eyebrow: 'Certifications',
-    heading: 'Validated foundations across frontend engineering and cloud architecture.',
+    heading: 'Credible foundations, applied in practice.',
     description:
-      'Professional credentials supporting the disciplines I apply when designing, building, and deploying complete web applications.',
+      'Professional credentials supporting the frontend and cloud disciplines I use to build and deliver products.',
   },
   items: [
     {
