@@ -3,44 +3,44 @@ export const principlesContent = {
     eyebrow: 'Principles',
     heading: 'The standards behind every decision.',
     description:
-      'Technology changes quickly. These principles keep the work grounded in usefulness, clarity, responsibility, and trust.',
+      'Technology changes quickly. These principles keep the reasoning grounded when the implementation options multiply.',
   },
   principles: [
     {
-      id: 'people-before-technology',
-      title: 'People before technology.',
+      id: 'person-using-system',
+      title: 'Build for the person using the system.',
       description:
-        'Technology should serve the people using the product, not become the purpose of the product.',
+        'Start with what someone is trying to accomplish and let that behavior—not the novelty of a tool—define the product.',
     },
     {
-      id: 'right-problem',
-      title: 'Solve the right problem.',
+      id: 'real-constraint',
+      title: 'Find the real constraint.',
       description:
-        'The quality of a solution depends on the quality of the question and the depth of understanding behind it.',
+        'The most important limitation is rarely the first feature request. Name it before deciding where complexity belongs.',
     },
     {
-      id: 'systems-over-shortcuts',
-      title: 'Systems outperform shortcuts.',
+      id: 'problem-before-optimization',
+      title: 'Solve the problem before optimizing the implementation.',
       description:
-        'Reliable products come from clear architecture, intentional decisions, and understanding how every part fits together.',
+        'A sophisticated system cannot rescue a weak understanding of the outcome it is meant to create.',
     },
     {
-      id: 'ai-accelerates',
-      title: 'AI accelerates engineering. It does not replace thinking.',
+      id: 'tools-expand-judgment',
+      title: 'Use tools to expand judgment, not replace it.',
       description:
-        'AI can increase speed and capability, but judgment, verification, product understanding, and responsibility remain essential.',
+        'AI can widen the search and accelerate the work; choosing the tradeoff and verifying the result remain human responsibilities.',
     },
     {
-      id: 'earn-trust',
-      title: 'Great software earns trust.',
+      id: 'simplicity-product-decision',
+      title: 'Simplicity is a product decision.',
       description:
-        'People return when a product is useful, reliable, understandable, and respectful of their time.',
+        'Removing friction, choices, and unnecessary system behavior can improve the experience more than adding another capability.',
     },
     {
-      id: 'shipping-learns',
-      title: 'Shipping is the beginning of learning.',
+      id: 'evidence-over-confidence',
+      title: 'Verify against evidence.',
       description:
-        'Real usage reveals what assumptions and prototypes cannot.',
+        'Correct code is only one test. Product behavior, accessibility, and real feedback determine whether the solution holds up.',
     },
   ],
 }

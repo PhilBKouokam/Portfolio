@@ -1,40 +1,40 @@
 export const processContent = {
   section: {
     eyebrow: 'How I Build',
-    heading: 'Thoughtful engineering from investigation to release.',
+    heading: 'Decisions before deliverables.',
     description:
-      'AI accelerates the work inside this process. Product judgment, systems thinking, and verification still guide every decision.',
+      'My process is designed to resist the first plausible answer. Each stage narrows uncertainty before it adds implementation.',
   },
   steps: [
     {
-      id: 'investigate',
-      title: 'Investigate',
+      id: 'find-the-problem',
+      title: 'Find the real problem',
       description:
-        'Understand the people, problem, constraints, assumptions, risks, and definition of success before proposing a solution.',
+        'Start with the behavior behind the request, not the requested feature. If I misunderstand what someone is trying to accomplish, efficient execution only produces the wrong thing faster.',
     },
     {
-      id: 'architect',
-      title: 'Architect',
+      id: 'name-the-constraint',
+      title: 'Name the constraint',
       description:
-        'Design a simple, maintainable system and establish clear boundaries, data flows, and technical decisions before implementation.',
+        'Identify what actually limits the outcome—friction, trust, time, data, or system behavior. The dominant constraint determines where complexity is justified and where it is waste.',
     },
     {
-      id: 'build',
-      title: 'Build',
+      id: 'challenge-the-answer',
+      title: 'Challenge the first answer',
       description:
-        'Use modern AI development workflows alongside sound engineering practices to implement reliable software efficiently.',
+        'Use research and AI to generate alternatives, expose assumptions, and pressure-test the obvious solution. The wider search is useful; choosing among the tradeoffs remains my responsibility.',
     },
     {
-      id: 'verify',
-      title: 'Verify',
+      id: 'smallest-useful-system',
+      title: 'Design the smallest useful system',
       description:
-        'Review, test, challenge, and refine each implementation for correctness, accessibility, maintainability, and user experience.',
+        'Prefer the least complicated product and architecture that resolve the constraint. Simplicity shortens feedback loops and makes the important behavior easier to understand, test, and change.',
     },
     {
-      id: 'ship',
-      title: 'Ship',
+      id: 'verify-with-evidence',
+      title: 'Verify against reality',
       description:
-        'Release the product, learn from real usage, gather feedback, and continue improving it.',
+        'Treat confidence as a hypothesis. Test correctness, accessibility, and product behavior, then use real feedback to decide whether to refine, remove, or continue—not merely whether the code runs.',
     },
   ],
 }

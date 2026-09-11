@@ -8,9 +8,9 @@ import awsServerlessEtlShot from '../assets/images/projects/aws-serverless-etl-p
 export const projectsContent = {
   section: {
     eyebrow: 'Products',
-    heading: 'Evidence through products.',
+    heading: 'The decisions behind the products.',
     description:
-      'Each product begins with a real problem, then becomes a set of decisions about usefulness, trust, behavior, and the system required to support it.',
+      'The stack is only part of the evidence. These products show how I frame a tension, choose what to simplify, and match the system to the behavior it needs to support.',
   },
   actions: {
     loomVideoLabel: '▶ Watch 2 min Demo',
@@ -47,21 +47,25 @@ export const projectsContent = {
     },
   ],
   featuredDetails: [
-    { id: 'problem', title: 'The problem', field: 'problemsSolved' },
-    { id: 'decision', title: 'Engineering decisions', field: 'architecture' },
+    { id: 'problem', title: 'Why it exists', field: 'problemsSolved' },
+    { id: 'approach', title: 'Why this approach', field: 'whyApproach' },
+    { id: 'decision', title: 'Why the system fits', field: 'architecture' },
+    { id: 'proof', title: 'What it proves', field: 'technicalProof' },
   ],
   projects: [
     {
       id: 'caloriebank', slug: 'caloriebank', title: 'CalorieBank', label: 'Flagship project',
       titleBadge: '⭐ Featured Project',
-      tagline: 'A more flexible way to think about calories across a week.',
-      description: 'The current publicly available CalorieBank web experience uses a weekly calorie-banking workflow to help people balance fitness goals with enjoying the foods they care about. It gives people a clearer, more flexible way to understand what they can eat while continuing to make progress toward their goals.',
+      tagline: 'Testing a more flexible mental model for calorie planning.',
+      description: 'The public web prototype explores weekly calorie banking as an alternative to treating every day as an isolated pass-or-fail target. It represents the currently available web experience; the separate mobile product remains evolving work.',
       technologies: ['React', 'Node.js', 'Express', 'MongoDB', 'AWS S3'], featured: true,
       liveDemo: 'https://caloriebank-pi.vercel.app/', github: 'https://github.com/PhilBKouokam/CalorieBank',
       loomVideo: 'https://www.loom.com/share/3a0f06928e004bad80cd4ae181f65d1c',
-      architecture: 'A React client with Context state connects to authenticated Express APIs, MongoDB models, and AWS S3 uploads across separate frontend and backend deployments.',
+      architecture: 'A shared weekly balance needs to stay consistent across the experience, so React Context coordinates client state while authenticated Express APIs and MongoDB own persisted records. S3 keeps uploaded files outside the application database.',
       engineeringChallenges: 'Keeping weekly calorie balances predictable across client state, authenticated API responses, and persisted user data.',
-      problemsSolved: 'Daily calorie targets can feel rigid and disconnected from how people actually plan meals, social occasions, and fitness goals across a week.',
+      problemsSolved: 'Calorie tracking often assumes identical days, while real life includes social events, favorite foods, weekends, and larger meals. That creates tension between consistency and flexibility.',
+      whyApproach: 'A banking model makes the weekly tradeoff visible: eating more on one day can be understood in the context of the week instead of framed as failure. The prototype tests whether that mental model feels clearer and less punitive.',
+      technicalProof: 'Demonstrates an authenticated full-stack workflow with explicit weekly domain state, persisted user data, file uploads, and separate frontend and backend deployments.',
       intendedOutcome: 'Give people a clearer, more flexible way to understand what they can eat while continuing to make progress toward their goals.',
       keyFeatures: ['Weekly calorie banking', 'JWT-protected REST APIs', 'AWS S3 uploads'],
       lessonsLearned: 'Reliable product behavior depends on explicit domain rules, focused UI states, and clean boundaries between client and server concerns.',
@@ -69,28 +73,32 @@ export const projectsContent = {
     },
     {
       id: 'spendwise', slug: 'spendwise', title: 'SpendWise', label: 'Featured project',
-      tagline: 'A responsive personal finance dashboard.',
-      description: 'SpendWise brings transaction tracking, spending patterns, and receipt storage into one responsive workflow, making day-to-day financial activity easier to record, understand, and revisit.',
+      tagline: 'Turning recorded transactions into usable financial context.',
+      description: 'SpendWise brings transactions, visual summaries, and receipt records into one responsive experience so financial information is easier to interpret and act on.',
       technologies: ['React', 'Node.js', 'Express', 'MongoDB', 'AWS S3'], featured: false,
       liveDemo: 'https://spendwise-two-navy.vercel.app/', github: 'https://github.com/PhilBKouokam/spendwise',
       loomVideo: 'https://www.loom.com/share/75bc2eae927b4d0d9c22ff35297a09c1',
-      architecture: 'A React dashboard connects authenticated CRUD APIs, MongoDB persistence, chart transformations, and AWS S3 receipt storage while scoping records to each account.',
+      architecture: 'Transactions are scoped to authenticated accounts because financial records require clear ownership. MongoDB fits the evolving transaction and receipt model, Recharts turns the same records into visible patterns, and S3 handles receipt files without burdening the database.',
       engineeringChallenges: 'Keeping financial summaries, chart data, receipt uploads, and authenticated CRUD workflows synchronized.',
-      problemsSolved: 'Personal finance data becomes less useful when transactions, receipts, and spending summaries live in separate places.',
+      problemsSolved: 'Recording an expense is not the same as understanding it. When transactions, receipts, and summaries are separated, people have more data but less usable visibility.',
+      whyApproach: 'The product keeps capture and interpretation together: record the transaction, preserve its receipt, then see the pattern in the same workflow. That reduces the distance between information and a decision.',
+      technicalProof: 'Demonstrates authenticated transaction CRUD, account-scoped MongoDB persistence, derived chart data, AWS S3 receipt uploads, and coordination across separate frontend and backend deployments.',
       intendedOutcome: 'Make day-to-day financial activity easier to record, understand, and revisit in one interface.',
       keyFeatures: ['Expense CRUD workflows', 'Financial charts', 'AWS S3 receipt uploads'],
       lessonsLearned: 'Financial interfaces require consistent data transformations and deliberate visual hierarchy to remain trustworthy.', screenshot: spendWiseShot, altText: 'SpendWise personal finance dashboard',
     },
     {
       id: 'habit-tracker', slug: 'habit-tracker', title: 'Habit Tracker', label: 'Featured project',
-      tagline: 'A complete MERN habit tracking application.',
-      description: 'Habit Tracker provides a direct daily workflow for creating, maintaining, and reviewing personal habits, keeping progress focused and predictable without unnecessary complexity.',
+      tagline: 'Reducing the friction between intention and repetition.',
+      description: 'Habit Tracker keeps creating a habit, recording completion, and reviewing the routine in one direct responsive workflow.',
       technologies: ['React', 'Context API', 'Node.js', 'Express', 'MongoDB'], featured: false,
       liveDemo: 'https://habit-tracker-six-murex.vercel.app/', github: 'https://github.com/PhilBKouokam/HabitTracker',
       loomVideo: 'https://www.loom.com/share/f69f4dce4b53414299a23805874cc25b',
-      architecture: 'A MERN application combines Context-based client state, authenticated Express routes, explicit CRUD API contracts, and persistent MongoDB models.',
+      architecture: 'The interaction should feel immediate, so React Context keeps completion state coherent across the client. JWT-protected Express routes and MongoDB provide a simple ownership and persistence model without adding infrastructure the product does not need.',
       engineeringChallenges: 'Keeping authenticated CRUD operations synchronized across local state, API responses, and persisted habit records.',
-      problemsSolved: 'Building consistency is harder when the act of recording progress becomes another complicated task.',
+      problemsSolved: 'A habit tool fails when tracking the routine creates enough friction to become a routine of its own. Consistency depends on making the return action clear and lightweight.',
+      whyApproach: 'The product limits the workflow to the decisions that matter each day: what the habit is and whether it was completed. Fewer steps make the tool easier to revisit instead of competing with the behavior it supports.',
+      technicalProof: 'Demonstrates JWT authentication, React Context state, habit CRUD and completion behavior, MongoDB persistence, and a responsive full-stack web experience.',
       intendedOutcome: 'Keep habit tracking focused and predictable so the product supports the routine rather than distracting from it.',
       keyFeatures: ['JWT authentication', 'CRUD REST APIs', 'React Context state'],
       lessonsLearned: 'Explicit state transitions and predictable API contracts make full-stack CRUD workflows easier to debug and maintain.', screenshot: habitTrackerShot, altText: 'Habit Tracker application dashboard',
@@ -209,6 +217,8 @@ const requiredProjectFields = [
   'keyFeatures',
   'lessonsLearned',
   'intendedOutcome',
+  'whyApproach',
+  'technicalProof',
   'screenshot',
   'altText',
 ]
@@ -224,7 +234,10 @@ function validateProjectsContent(content) {
       const value = project[field]
       const isEmptyArray = Array.isArray(value) && value.length === 0
 
-      if (value == null || value === '' || isEmptyArray) {
+      const isPrimaryProject = content.categories[0].projectIds.includes(project.id)
+      const isOptionalReasoningField = ['whyApproach', 'technicalProof'].includes(field) && !isPrimaryProject
+
+      if (!isOptionalReasoningField && (value == null || value === '' || isEmptyArray)) {
         throw new Error(`Project "${project.id || 'unknown'}" is missing required field "${field}".`)
       }
     })

@@ -1,10 +1,11 @@
 export const aboutContent = {
   eyebrow: 'Why I Build',
-  heading: 'The purpose of engineering is to create products people genuinely enjoy using.',
+  heading: 'When building gets easier, judgment matters more.',
   paragraphs: [
-    'AI has transformed software development. Building software is faster and more accessible than ever.',
-    'But great products have never been defined by how quickly they are built. They are defined by whether people choose to use them, trust them, and return to them.',
+    'AI has lowered the cost of turning an idea into working software. Interfaces, APIs, and prototypes can appear faster than ever—but speed does not tell us whether the idea deserves to exist.',
+    'The harder work is understanding the behavior behind a request: what someone is trying to accomplish, where the friction actually lives, and which constraint determines whether a solution will help.',
+    'A working implementation proves that something can be built. Product judgment asks what should be built, what should be left out, and what would make the result worth returning to.',
   ],
   closingStatement:
-    'Every product I build begins with one question: Will this make the experience more useful, trustworthy, or enjoyable for the person using it?',
+    'Before I choose a feature or a framework, I want to know which decision would make the experience more useful—and what evidence would prove it.',
 }

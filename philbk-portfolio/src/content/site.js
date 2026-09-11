@@ -14,7 +14,7 @@ export const siteContent = {
     name: 'Phillip-Bryan Kouokam',
     professionalTitle: 'AI-Native Full-Stack Engineer',
     professionalSummary:
-      'Thoughtful product engineering through systems thinking, modern AI development workflows, and a focus on real user problems.',
+      'Product engineering grounded in curiosity, constraints, systems thinking, and evidence.',
   },
   contact: { email },
   links,
@@ -25,7 +25,7 @@ export const siteContent = {
   seo: {
     title: 'Phillip-Bryan Kouokam | AI-Native Full-Stack Engineer',
     description:
-      'AI-Native Full-Stack Engineer building thoughtful, production-ready products through systems thinking, modern AI development workflows, and a focus on real user problems.',
+      'AI-Native Full-Stack Engineer who investigates user behavior, reasons through constraints, and builds useful products with accountable human judgment.',
     url: siteUrl,
     locale: 'en_US',
     language: 'en',
@@ -46,9 +46,9 @@ export const siteContent = {
   pages: {
     contact: {
       eyebrow: 'Contact',
-      heading: 'Let’s build something people will enjoy using.',
+      heading: 'Let’s understand the problem before we build the answer.',
       description:
-        'You can expect thoughtful engineering, honest communication, and a consistent focus on solving the right problem well.',
+        'You can expect curiosity, honest communication, fast learning, and follow-through—from challenging the first assumption to verifying what ships.',
       linksLabel: 'Contact and professional links',
     },
     footer: {

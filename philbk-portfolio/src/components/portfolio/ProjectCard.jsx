@@ -1,5 +1,4 @@
 import { motion, useReducedMotion } from 'framer-motion'
-import { Check } from 'lucide-react'
 import Badge from '../ui/Badge'
 import ProjectActions from '../ui/ProjectActions'
 import ProjectPreview from '../ui/ProjectPreview'
@@ -35,6 +34,9 @@ function ProjectCard({ project, actions, index, compact = false }) {
             <Badge>{project.titleBadge}</Badge>
           </div>
         ) : null}
+        {!compact ? (
+          <p className="mt-3 text-base leading-7 text-muted">{project.tagline}</p>
+        ) : null}
         {compact ? (
           <p className="mt-3 text-sm leading-6 text-muted sm:text-base sm:leading-7">
             {project.supportingSummary}
@@ -45,27 +47,23 @@ function ProjectCard({ project, actions, index, compact = false }) {
           <>
             <dl className="mt-5 grid gap-4 border-t border-border/80 pt-5">
               <div>
-                <dt className="text-sm font-semibold text-foreground">The problem</dt>
+                <dt className="text-sm font-semibold text-foreground">Why it exists</dt>
                 <dd className="mt-2 text-sm leading-6 text-muted">{project.problemsSolved}</dd>
               </div>
               <div>
-                <dt className="text-sm font-semibold text-foreground">Product response</dt>
-                <dd className="mt-2 text-sm leading-6 text-muted">{project.description}</dd>
+                <dt className="text-sm font-semibold text-foreground">Why this approach</dt>
+                <dd className="mt-2 text-sm leading-6 text-muted">{project.whyApproach}</dd>
               </div>
               <div>
-                <dt className="text-sm font-semibold text-foreground">Engineering decisions</dt>
+                <dt className="text-sm font-semibold text-foreground">Why the system fits</dt>
                 <dd className="mt-2 text-sm leading-6 text-muted">{project.architecture}</dd>
+              </div>
+              <div>
+                <dt className="text-sm font-semibold text-foreground">What it proves</dt>
+                <dd className="mt-2 text-sm leading-6 text-muted">{project.technicalProof}</dd>
               </div>
             </dl>
             <TechList technologies={project.technologies} className="mt-5" />
-            <ul className="mt-4 grid gap-2 text-sm text-muted sm:grid-cols-2">
-              {project.keyFeatures.map((feature) => (
-                <li key={feature} className="flex items-start gap-2">
-                  <Check aria-hidden="true" className="mt-0.5 shrink-0 text-success" size={16} />
-                  <span>{feature}</span>
-                </li>
-              ))}
-            </ul>
           </>
         ) : (
           <TechList technologies={project.technologies} className="mt-5" />
