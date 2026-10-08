@@ -35,7 +35,7 @@ From a visitor's perspective, the homepage is one continuous narrative:
 1. **Identity** — AI-Native Full-Stack Engineer.
 2. **Philosophy** — why I build and what I believe good engineering should accomplish.
 3. **Process** — how I investigate, architect, build, verify, and ship.
-4. **Products** — evidence of product judgment and full-stack engineering through CalorieBank, SpendWise, and Habit Tracker.
+4. **Products** — CalorieBank leads with its actual iPhone preview and mobile source. Independent Walmart, Amazon, and Whole Foods nutrition discovery prototypes follow in that order; SpendWise and Habit Tracker remain supporting engineering work.
 5. **Principles** — the standards behind technical and product decisions.
 6. **Technologies and certifications** — the tools and foundations that support the work.
 7. **Contact** — a direct invitation to continue the conversation.
@@ -47,12 +47,13 @@ This sequence makes the site a product narrative rather than a traditional portf
 ### Professional Identity
 
 - Clear AI-Native Full-Stack Engineer positioning.
-- Philosophy-first narrative focused on product judgment, systems thinking, and user needs.
+- Nutrition and fitness focus supported by product judgment, systems thinking, and full-stack engineering.
 - Consistent access to the canonical résumé and professional profiles.
 
 ### Product Showcase
 
-- Three primary products presented through the problem, product response, engineering decisions, technologies, and relevant actions.
+- CalorieBank presented through the problem, product response, engineering decisions, mobile recording, and source.
+- Three independent exploratory frontend/product-design walkthroughs, with accurate scope and verified live links. Retailer source links are added only when available and verified.
 - Additional engineering work presented with intentionally secondary visual weight.
 - Truthful links to live products, source repositories, demonstrations, and documentation.
 
@@ -230,6 +231,10 @@ npm run preview
 ## Deployment
 
 The application is designed for deployment on [Vercel](https://vercel.com/). Set `VITE_SITE_URL` to the canonical production URL so route-level SEO metadata can emit the correct canonical URL.
+
+The existing GitHub-connected Vercel project deploys `main` to [philbk.dev](https://philbk.dev). Check the commit’s Vercel status and read back the production assets before reporting a release as live. Preserve the current domain and hosting configuration.
+
+The mobile preview image is a resized JPEG of a frame from the publicly approved CalorieBank iPhone recording. Retailer projects use text cards rather than reconstructed retailer imagery. The earlier CalorieBank web prototype remains explicitly labeled; the mobile recording is the lead action.
 
 ## Visual Design Philosophy
 

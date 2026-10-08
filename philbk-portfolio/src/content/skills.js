@@ -12,6 +12,9 @@ export const skillsContent = {
       description: 'Accessible, responsive interfaces with maintainable client-side architecture.',
       skills: [
         'React',
+        'React Native',
+        'Expo',
+        'TypeScript',
         'JavaScript',
         'HTML',
         'CSS',
@@ -32,7 +35,7 @@ export const skillsContent = {
       id: 'data',
       category: 'Data',
       description: 'Structured persistence and application-focused data modeling.',
-      skills: ['MongoDB', 'Mongoose'],
+      skills: ['PostgreSQL', 'Prisma', 'MongoDB', 'Mongoose'],
     },
     {
       id: 'cloud-delivery',

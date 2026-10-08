@@ -1,4 +1,4 @@
-import calorieBankShot from '../assets/images/projects/caloriebank.png'
+import calorieBankMobileShot from '../assets/images/projects/caloriebank-mobile.jpg'
 import spendWiseShot from '../assets/images/projects/spendwise.png'
 import habitTrackerShot from '../assets/images/projects/habit-tracker.png'
 import philbkResumeShot from '../assets/images/projects/philbk-resume.png'
@@ -10,7 +10,7 @@ export const projectsContent = {
     eyebrow: 'Products',
     heading: 'The decisions behind the products.',
     description:
-      'The stack is only part of the evidence. These products show how I frame a tension, choose what to simplify, and match the system to the behavior it needs to support.',
+      'CalorieBank is the deeper full-stack work. The nutrition discovery prototypes explore a narrower interface question: how to turn a per-serving goal into a useful set of food choices.',
   },
   actions: {
     loomVideoLabel: '▶ Watch 2 min Demo',
@@ -20,6 +20,14 @@ export const projectsContent = {
     readmeLabel: 'View README',
     unavailableLiveDemoTitle: 'Live demo link coming soon',
     projectOverrides: {
+      CalorieBank: {
+        liveDemoLabel: 'Watch mobile preview',
+        liveDemoAriaLabel: 'Watch the CalorieBank mobile recording preview',
+        githubLabel: 'Mobile source',
+      },
+      'Walmart nutrition discovery': { liveDemoLabel: 'Explore walkthrough' },
+      'Amazon nutrition discovery': { liveDemoLabel: 'Explore walkthrough' },
+      'Whole Foods nutrition discovery': { liveDemoLabel: 'Explore walkthrough' },
       'AWS Highly Available Web Application': {
         repositoryLabel: 'GitHub',
         readmeLabel: 'Documentation',
@@ -33,13 +41,22 @@ export const projectsContent = {
   categories: [
     {
       id: 'primary-products',
-      title: 'Primary Products',
-      projectIds: ['caloriebank', 'spendwise', 'habit-tracker'],
+      title: 'Flagship Product',
+      projectIds: ['caloriebank'],
+    },
+    {
+      id: 'nutrition-discovery-prototypes',
+      title: 'Independent Nutrition Discovery Prototypes',
+      description: 'Exploratory frontend and product design work based on observed retailer interfaces. These are independent proposals, with bounded example data and no retailer affiliation or live shopping.',
+      presentation: 'showcase',
+      projectIds: ['walmart-nutrition', 'amazon-nutrition', 'wholefoods-nutrition'],
     },
     {
       id: 'additional-engineering-work',
       title: 'Additional Engineering Work',
       projectIds: [
+        'spendwise',
+        'habit-tracker',
         'aws-highly-available-web-application',
         'aws-serverless-etl-pipeline',
         'philbk-resume',
@@ -56,23 +73,98 @@ export const projectsContent = {
     {
       id: 'caloriebank', slug: 'caloriebank', title: 'CalorieBank', label: 'Flagship project',
       titleBadge: '⭐ Featured Project',
-      tagline: 'Testing a more flexible mental model for calorie planning.',
-      description: 'The public web prototype explores weekly calorie banking as an alternative to treating every day as an isolated pass-or-fail target. It represents the currently available web experience; the separate mobile product remains evolving work.',
-      technologies: ['React', 'Node.js', 'Express', 'MongoDB', 'AWS S3'], featured: true,
-      liveDemo: 'https://caloriebank-pi.vercel.app/', github: 'https://github.com/PhilBKouokam/CalorieBank',
-      loomVideo: 'https://www.loom.com/share/3a0f06928e004bad80cd4ae181f65d1c',
-      architecture: 'A shared weekly balance needs to stay consistent across the experience, so React Context coordinates client state while authenticated Express APIs and MongoDB own persisted records. S3 keeps uploaded files outside the application database.',
-      engineeringChallenges: 'Keeping weekly calorie balances predictable across client state, authenticated API responses, and persisted user data.',
-      problemsSolved: 'Calorie tracking often assumes identical days, while real life includes social events, favorite foods, weekends, and larger meals. That creates tension between consistency and flexibility.',
-      whyApproach: 'A banking model makes the weekly tradeoff visible: eating more on one day can be understood in the context of the week instead of framed as failure. The prototype tests whether that mental model feels clearer and less punitive.',
-      technicalProof: 'Demonstrates an authenticated full-stack workflow with explicit weekly domain state, persisted user data, file uploads, and separate frontend and backend deployments.',
+      tagline: 'A mobile calorie bank for planning around real life.',
+      description: 'CalorieBank connects nutrition and activity data to a calorie bank. The public preview is an actual 46-second iPhone recording: Today, weekly History, saving a Banking Goal, and updating a burn target. It shows the evolving mobile product in use.',
+      technologies: ['React Native', 'Expo', 'TypeScript', 'Node.js', 'Express', 'PostgreSQL', 'Prisma'], featured: true,
+      liveDemo: 'https://caloriebank-mobile-philbk.kouokambryan.chatgpt.site',
+      github: 'https://github.com/PhilBKouokam/CalorieBank/tree/codex/private-beta-release',
+      earlierWebDemo: 'https://caloriebank-pi.vercel.app/',
+      architecture: 'React Native and Expo present the mobile experience. An Express API validates requests; shared domain packages own banking rules, while PostgreSQL and Prisma persist traceable ledger records. Provider ingestion stays separate from balance calculations.',
+      engineeringChallenges: 'Keeping provider inputs, completed-day accounting, corrections, and mobile state consistent without treating current-day estimates as bank deposits.',
+      problemsSolved: 'Identical daily targets do not always fit social events, favorite foods, or changing activity. A visible bank gives those decisions context across completed days.',
+      whyApproach: 'Make the balance explainable before adding more features. Banking Goals organize the existing bank; activity estimates support planning without changing finalized accounting.',
+      technicalProof: 'The recording demonstrates the mobile interaction. The linked source provides the deeper evidence: validated API boundaries, shared banking logic, relational persistence, provider synchronization, and automated domain/API tests.',
       intendedOutcome: 'Give people a clearer, more flexible way to understand what they can eat while continuing to make progress toward their goals.',
-      keyFeatures: ['Weekly calorie banking', 'JWT-protected REST APIs', 'AWS S3 uploads'],
+      keyFeatures: ['Available Bank and History', 'Banking Goals', 'Burn-target planning'],
       lessonsLearned: 'Reliable product behavior depends on explicit domain rules, focused UI states, and clean boundaries between client and server concerns.',
-      screenshot: calorieBankShot, altText: 'CalorieBank application dashboard',
+      screenshot: calorieBankMobileShot, altText: 'Actual CalorieBank Today screen from the publicly shared iPhone recording',
+      preview: {
+        layout: 'mobile',
+        eyebrow: 'Actual iPhone app recording',
+        title: 'CalorieBank, on iPhone.',
+        summary: 'Today · History · Banking Goal · Burn target',
+        caption: '46 seconds · October 8, 2026',
+      },
     },
     {
-      id: 'spendwise', slug: 'spendwise', title: 'SpendWise', label: 'Featured project',
+      id: 'walmart-nutrition', slug: 'walmart-nutrition', title: 'Walmart nutrition discovery',
+      label: 'Independent exploratory prototype',
+      tagline: 'Keep a precise nutrition goal beside the food results.',
+      description: 'An independent frontend and product design proposal for nutrition discovery in Walmart grocery search.',
+      technologies: ['HTML', 'CSS', 'JavaScript'], featured: false,
+      liveDemo: 'https://low-cal-filter-walkthrough.kouokambryan.chatgpt.site/layout.html',
+      github: null,
+      problemsSolved: 'Broad categories can leave a shopper opening individual products to check whether a serving fits a specific calorie, protein, or fiber goal.',
+      whyApproach: 'Separate calorie, protein, and fiber walkthroughs move from an observed interface to a proposed numeric per-serving control and same-screen filtered results.',
+      architecture: 'Client-side filtering over bounded example products, with serving information kept visible beside the selected goal.',
+      technicalProof: 'An interactive frontend proposal using example data. No live catalog, checkout, retailer integration, or measured shopper outcomes.',
+      engineeringChallenges: 'Keep the selected nutrient, serving basis, and resulting product set understandable together.',
+      keyFeatures: ['Observed → Proposed → Results', 'Numeric per-serving goals', 'Same-screen filtered results'],
+      lessonsLearned: 'A useful filter needs an explicit serving basis and a visible relationship between the goal and its results.',
+      intendedOutcome: 'Explore a clearer path from an individual nutrition goal to food choices.',
+      details: [
+        { title: 'The question', field: 'problemsSolved' },
+        { title: 'What I built', field: 'whyApproach' },
+        { title: 'Scope', field: 'technicalProof' },
+      ],
+    },
+    {
+      id: 'amazon-nutrition', slug: 'amazon-nutrition', title: 'Amazon nutrition discovery',
+      label: 'Independent exploratory prototype',
+      tagline: 'Refine existing nutrition tools with exact serving goals.',
+      description: 'An independent frontend and product design proposal for regular Amazon retail search.',
+      technologies: ['HTML', 'CSS', 'JavaScript'], featured: false,
+      liveDemo: 'https://amazon-nutrition-discovery.kouokambryan.chatgpt.site',
+      github: null,
+      problemsSolved: 'Existing nutrition bands and product information provide a starting point; a shopper may still need a more precise goal with a consistent serving basis.',
+      whyApproach: 'Separate calorie, protein, and fiber stories show observed evidence, proposed compact inline controls, and same-screen results. Selected numeric goals can be combined.',
+      architecture: 'Client-side matching uses source-checked example facts and explicit labeled servings, with missing or conflicting required values excluded.',
+      technicalProof: 'A bounded frontend walkthrough, extending observed tools. Example results do not represent the full Amazon catalog or measured customer improvements.',
+      engineeringChallenges: 'Preserve serving-size context when applying precise goals to different packaged products.',
+      keyFeatures: ['Observed → Proposed → Results', 'Combined per-serving goals', 'Same-screen filtered results'],
+      lessonsLearned: 'Exact thresholds only help when serving sizes and missing-data boundaries remain clear.',
+      intendedOutcome: 'Explore more precise discovery while respecting existing retailer capabilities.',
+      details: [
+        { title: 'The question', field: 'problemsSolved' },
+        { title: 'What I built', field: 'whyApproach' },
+        { title: 'Scope', field: 'technicalProof' },
+      ],
+    },
+    {
+      id: 'wholefoods-nutrition', slug: 'wholefoods-nutrition', title: 'Whole Foods nutrition discovery',
+      label: 'Independent exploratory prototype',
+      tagline: 'Make the serving part of the discovery decision.',
+      description: 'An independent frontend and product design proposal for Whole Foods grocery discovery.',
+      technologies: ['HTML', 'CSS', 'JavaScript'], featured: false,
+      liveDemo: 'https://whole-foods-nutrition-discovery.kouokambryan.chatgpt.site',
+      github: null,
+      problemsSolved: 'A useful nutrition comparison depends on both the nutrient value and the portion it describes; broad labels alone do not answer every shopper’s question.',
+      whyApproach: 'Calorie, protein, and fiber stories connect genuine observed references to compact numeric per-serving controls and same-screen filtered examples.',
+      architecture: 'Client-side filtering preserves each product’s stated portion rather than silently treating unlike servings as equal.',
+      technicalProof: 'A bounded frontend proposal with source-checked product examples. No live inventory, ordering, retailer affiliation, or measured sales results.',
+      engineeringChallenges: 'Show precise nutrient thresholds while preserving different portion sizes and source limitations.',
+      keyFeatures: ['Observed → Proposed → Results', 'Numeric per-serving goals', 'Explicit serving portions'],
+      lessonsLearned: 'Serving context and evidence limitations belong beside the proposed result.',
+      intendedOutcome: 'Explore food discovery that respects the shopper’s goal and the product’s stated portion.',
+      details: [
+        { title: 'The question', field: 'problemsSolved' },
+        { title: 'What I built', field: 'whyApproach' },
+        { title: 'Scope', field: 'technicalProof' },
+      ],
+    },
+    {
+      id: 'spendwise', slug: 'spendwise', title: 'SpendWise', label: 'Full-stack web project',
+      supportingSummary: 'Authenticated transaction CRUD, financial charts, and AWS S3 receipt uploads in a responsive full-stack application.',
       tagline: 'Turning recorded transactions into usable financial context.',
       description: 'SpendWise brings transactions, visual summaries, and receipt records into one responsive experience so financial information is easier to interpret and act on.',
       technologies: ['React', 'Node.js', 'Express', 'MongoDB', 'AWS S3'], featured: false,
@@ -88,7 +180,8 @@ export const projectsContent = {
       lessonsLearned: 'Financial interfaces require consistent data transformations and deliberate visual hierarchy to remain trustworthy.', screenshot: spendWiseShot, altText: 'SpendWise personal finance dashboard',
     },
     {
-      id: 'habit-tracker', slug: 'habit-tracker', title: 'Habit Tracker', label: 'Featured project',
+      id: 'habit-tracker', slug: 'habit-tracker', title: 'Habit Tracker', label: 'Full-stack web project',
+      supportingSummary: 'A focused MERN workflow for creating habits, recording completion, and keeping authenticated state in sync.',
       tagline: 'Reducing the friction between intention and repetition.',
       description: 'Habit Tracker keeps creating a habit, recording completion, and reviewing the routine in one direct responsive workflow.',
       technologies: ['React', 'Context API', 'Node.js', 'Express', 'MongoDB'], featured: false,
@@ -210,7 +303,6 @@ const requiredProjectFields = [
   'label',
   'description',
   'technologies',
-  'github',
   'architecture',
   'engineeringChallenges',
   'problemsSolved',
@@ -219,8 +311,6 @@ const requiredProjectFields = [
   'intendedOutcome',
   'whyApproach',
   'technicalProof',
-  'screenshot',
-  'altText',
 ]
 
 function validateProjectsContent(content) {
@@ -247,6 +337,14 @@ function validateProjectsContent(content) {
     }
 
     projectIds.add(project.id)
+
+    if (!project.liveDemo && !project.github) {
+      throw new Error(`Project "${project.id}" must have a verified live or source link.`)
+    }
+
+    if (project.screenshot && !project.altText) {
+      throw new Error(`Project "${project.id}" screenshot must have alternative text.`)
+    }
   })
 
   const categorizedProjectIds = content.categories.flatMap((category) => category.projectIds)

@@ -1,4 +1,34 @@
-function ProjectPreview({ screenshot, altText, featured = false, href, linkLabel }) {
+function ProjectPreview({ screenshot, altText, featured = false, href, linkLabel, preview }) {
+  if (preview?.layout === 'mobile') {
+    return (
+      <div className="rounded-card border border-border bg-background shadow-card">
+        <a
+          href={href}
+          target="_blank"
+          rel="noreferrer"
+          aria-label={linkLabel}
+          className="grid items-center gap-6 rounded-card p-6 transition-opacity duration-200 hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary sm:grid-cols-[1fr_auto] sm:gap-10 sm:p-10 lg:px-16"
+        >
+          <div>
+            <p className="text-xs font-semibold tracking-[0.12em] text-primary uppercase">{preview.eyebrow}</p>
+            <p className="mt-4 text-3xl font-semibold tracking-tight text-foreground sm:text-4xl lg:text-5xl">{preview.title}</p>
+            <p className="mt-4 max-w-sm text-sm leading-6 text-muted sm:text-base">{preview.summary}</p>
+            <p className="mt-5 text-xs text-muted">{preview.caption}</p>
+          </div>
+          <img
+            src={screenshot}
+            alt={altText}
+            loading="lazy"
+            decoding="async"
+            width="600"
+            height="1300"
+            className="mx-auto h-auto w-44 rounded-2xl border border-border sm:w-48 lg:w-56"
+          />
+        </a>
+      </div>
+    )
+  }
+
   if (screenshot) {
     const image = (
       <img

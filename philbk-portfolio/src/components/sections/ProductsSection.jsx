@@ -23,6 +23,7 @@ function ProductsSection() {
         {projectsContent.categories.map((category, categoryIndex) => {
           const categoryProjects = category.projectIds.map((id) => projectsById.get(id))
           const isPrimary = category.id === 'primary-products'
+          const isShowcase = isPrimary || category.presentation === 'showcase'
           const featuredProject = isPrimary ? categoryProjects.find((project) => project.featured) : null
           const supportingProjects = isPrimary
             ? categoryProjects.filter((project) => !project.featured)
@@ -41,6 +42,11 @@ function ProductsSection() {
               >
                 {category.title}
               </p>
+              {category.description ? (
+                <p className="mt-3 max-w-3xl text-sm leading-6 text-muted sm:text-base sm:leading-7">
+                  {category.description}
+                </p>
+              ) : null}
 
               {featuredProject ? (
                 <div className="mt-6">
@@ -60,7 +66,7 @@ function ProductsSection() {
                       project={project}
                       actions={projectsContent.actions}
                       index={index}
-                      compact={!isPrimary}
+                      compact={!isShowcase}
                     />
                   ))}
                 </div>

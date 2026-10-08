@@ -14,7 +14,7 @@ export const siteContent = {
     name: 'Phillip-Bryan Kouokam',
     professionalTitle: 'AI-Native Full-Stack Engineer',
     professionalSummary:
-      'Product engineering grounded in curiosity, constraints, systems thinking, and evidence.',
+      'Full-stack product engineering with a focus on nutrition, fitness, and clearer everyday decisions.',
   },
   contact: { email },
   links,
@@ -25,7 +25,7 @@ export const siteContent = {
   seo: {
     title: 'Phillip-Bryan Kouokam | AI-Native Full-Stack Engineer',
     description:
-      'AI-Native Full-Stack Engineer who investigates user behavior, reasons through constraints, and builds useful products with accountable human judgment.',
+      'Full-stack engineer focused on nutrition and fitness. Explore CalorieBank’s mobile experience, independent nutrition discovery prototypes, and supporting engineering work.',
     url: siteUrl,
     locale: 'en_US',
     language: 'en',

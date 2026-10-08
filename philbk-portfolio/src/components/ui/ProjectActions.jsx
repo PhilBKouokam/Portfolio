@@ -1,8 +1,8 @@
 import { Code2, ExternalLink } from 'lucide-react'
 import Button from './Button'
 
-function ProjectActions({ projectName, liveUrl, githubUrl, readmeUrl, loomVideoUrl, labels }) {
-  const projectLabels = labels.projectOverrides?.[projectName] ?? labels
+function ProjectActions({ projectName, liveUrl, githubUrl, readmeUrl, loomVideoUrl, earlierWebUrl, labels }) {
+  const projectLabels = { ...labels, ...labels.projectOverrides?.[projectName] }
   const shouldShowUnavailableLiveDemo = !liveUrl && !readmeUrl
 
   if (loomVideoUrl) {
@@ -73,9 +73,9 @@ function ProjectActions({ projectName, liveUrl, githubUrl, readmeUrl, loomVideoU
           href={liveUrl}
           target="_blank"
           rel="noreferrer"
-          aria-label={`View ${projectName} live demo (opens in a new tab)`}
+          aria-label={`${projectLabels.liveDemoAriaLabel ?? `View ${projectName} live demo`} (opens in a new tab)`}
         >
-          {labels.liveDemoLabel}
+          {projectLabels.liveDemoLabel}
           <ExternalLink aria-hidden="true" size={16} />
         </Button>
       ) : null}
@@ -101,7 +101,7 @@ function ProjectActions({ projectName, liveUrl, githubUrl, readmeUrl, loomVideoU
           aria-label={`View ${projectName} on GitHub (opens in a new tab)`}
         >
           <Code2 aria-hidden="true" size={17} />
-          {liveUrl ? labels.githubLabel : projectLabels.repositoryLabel}
+          {liveUrl ? projectLabels.githubLabel : projectLabels.repositoryLabel}
         </Button>
       ) : null}
 
@@ -116,6 +116,17 @@ function ProjectActions({ projectName, liveUrl, githubUrl, readmeUrl, loomVideoU
           {projectLabels.readmeLabel}
           <ExternalLink aria-hidden="true" size={16} />
         </Button>
+      ) : null}
+      {earlierWebUrl ? (
+        <a
+          href={earlierWebUrl}
+          target="_blank"
+          rel="noreferrer"
+          className="mt-1 w-full text-sm text-muted underline decoration-border underline-offset-4 transition-colors hover:text-foreground"
+          aria-label={`View the earlier ${projectName} web prototype (opens in a new tab)`}
+        >
+          Earlier Web Prototype <span aria-hidden="true">↗</span>
+        </a>
       ) : null}
     </div>
   )

@@ -6,6 +6,12 @@ import TechList from '../ui/TechList'
 
 function ProjectCard({ project, actions, index, compact = false }) {
   const prefersReducedMotion = useReducedMotion()
+  const details = project.details ?? [
+    { title: 'Why it exists', field: 'problemsSolved' },
+    { title: 'Why this approach', field: 'whyApproach' },
+    { title: 'Why the system fits', field: 'architecture' },
+    { title: 'What it proves', field: 'technicalProof' },
+  ]
 
   return (
     <motion.article
@@ -15,7 +21,7 @@ function ProjectCard({ project, actions, index, compact = false }) {
       transition={{ duration: 0.4, delay: prefersReducedMotion ? 0 : index * 0.08, ease: 'easeOut' }}
       className={`flex h-full flex-col rounded-card border border-border bg-surface p-4 transition-[border-color,transform,box-shadow] duration-200 hover:-translate-y-1 hover:border-slate-600 hover:shadow-card sm:p-5 ${compact ? 'hover:translate-y-0' : ''}`}
     >
-      <ProjectPreview
+      {project.screenshot ? <ProjectPreview
         screenshot={project.screenshot}
         altText={project.altText}
         href={project.linkScreenshotToGithub ? project.github : undefined}
@@ -24,8 +30,13 @@ function ProjectCard({ project, actions, index, compact = false }) {
             ? `View the ${project.title} repository on GitHub (opens in a new tab)`
             : undefined
         }
-      />
-      <div className="flex flex-1 flex-col px-1 pt-7 pb-2 sm:px-2">
+      /> : null}
+      <div className={`flex flex-1 flex-col px-1 pb-2 sm:px-2 ${project.screenshot ? 'pt-7' : 'pt-3'}`}>
+        {!compact ? (
+          <p className="mb-3 text-xs font-semibold tracking-[0.12em] text-primary uppercase">
+            {project.label}
+          </p>
+        ) : null}
         <h3 className="text-2xl font-semibold tracking-tight text-foreground sm:text-3xl">
           {project.title}
         </h3>
@@ -35,7 +46,7 @@ function ProjectCard({ project, actions, index, compact = false }) {
           </div>
         ) : null}
         {!compact ? (
-          <p className="mt-3 text-base leading-7 text-muted">{project.tagline}</p>
+          <p className="mt-3 text-base leading-7 text-muted">{project.description}</p>
         ) : null}
         {compact ? (
           <p className="mt-3 text-sm leading-6 text-muted sm:text-base sm:leading-7">
@@ -46,22 +57,12 @@ function ProjectCard({ project, actions, index, compact = false }) {
         {!compact ? (
           <>
             <dl className="mt-5 grid gap-4 border-t border-border/80 pt-5">
-              <div>
-                <dt className="text-sm font-semibold text-foreground">Why it exists</dt>
-                <dd className="mt-2 text-sm leading-6 text-muted">{project.problemsSolved}</dd>
-              </div>
-              <div>
-                <dt className="text-sm font-semibold text-foreground">Why this approach</dt>
-                <dd className="mt-2 text-sm leading-6 text-muted">{project.whyApproach}</dd>
-              </div>
-              <div>
-                <dt className="text-sm font-semibold text-foreground">Why the system fits</dt>
-                <dd className="mt-2 text-sm leading-6 text-muted">{project.architecture}</dd>
-              </div>
-              <div>
-                <dt className="text-sm font-semibold text-foreground">What it proves</dt>
-                <dd className="mt-2 text-sm leading-6 text-muted">{project.technicalProof}</dd>
-              </div>
+              {details.map((detail) => (
+                <div key={detail.field}>
+                  <dt className="text-sm font-semibold text-foreground">{detail.title}</dt>
+                  <dd className="mt-2 text-sm leading-6 text-muted">{project[detail.field]}</dd>
+                </div>
+              ))}
             </dl>
             <TechList technologies={project.technologies} className="mt-5" />
           </>
